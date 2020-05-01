@@ -12,6 +12,6 @@ body {
   height: 100vh;
   background: white;
   color: black;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Muli','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 `;

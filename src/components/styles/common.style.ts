@@ -14,5 +14,45 @@ export const Wrap = styled.div`
   padding: 0;
   /*justify-content: center;*/
   display: flex;
+  flex-direction: column;
+`;
+
+export const Center = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+`;
+
+export const Vertical = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+`;
+
+export const Horizontal = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
   flex-direction: row;
+`;
+
+interface MarginProps {
+  marginValue: string;
+}
+export const Margin = styled.div<MarginProps>`
+  margin: 0;
+  padding: 0;
+  margin: ${props => `${props.marginValue}`};
+`;
+
+interface FlexProps {
+  grow: number;
+  center?: boolean;
+}
+export const Flex = styled.div<FlexProps>`
+  display: flex;
+  flex-grow: ${props => `${props.grow}`};
+  justify-content: ${props => (props.center ? `center` : `unset`)};
 `;
