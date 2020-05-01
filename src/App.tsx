@@ -1,11 +1,20 @@
+// React:
 import React from 'react';
+// Components:
+import Feed from './components/Feed';
+import Layout from './components/Layout';
+// style:
+import { GlobalStyle } from './components/styles/global.style';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <div>app</div>
-    </div>
+    <>
+      <GlobalStyle />
+      <Layout>
+        <Feed />
+      </Layout>
+    </>
   );
-}
+};
 
 export default App;
