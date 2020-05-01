@@ -1,14 +1,32 @@
+// React:
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+import App from './App';
+// Libraries:
+import { Normalize } from 'styled-normalize';
+// Redux:
+import { Provider } from 'react-redux';
+import configureStore from './store/store';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Root = () => {
+  if (process.env.NODE_ENV !== 'development') {
+    console.log = function() {};
+  }
+  console.log(`APP STARTS AT ${process.env.NODE_ENV} MODE`);
+
+  const store = configureStore();
+  return (
+    <React.StrictMode>
+      <Provider store={store}>
+        <Normalize />
+        <App />
+      </Provider>
+    </React.StrictMode>
+  );
+};
+
+ReactDOM.render(<Root />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
