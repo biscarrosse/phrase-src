@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 100vh;
   display: flex;
   flex-grow: 12;
+  margin: 0 1.4rem;
 `;
 
 export const Wrap = styled.div`
@@ -36,6 +37,12 @@ export const Horizontal = styled.div`
   padding: 0;
   display: flex;
   flex-direction: row;
+`;
+
+export const FullWidth = styled.div`
+  min-width: 100%;
+  width: 100%;
+  max-width: 100%;
 `;
 
 interface MarginProps {

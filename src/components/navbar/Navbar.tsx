@@ -39,7 +39,10 @@ const Navbar: React.FC = () => {
     <Margin marginValue={'0.5rem 0'}>
       <Vertical>
         <Horizontal>
-          <Flex grow={10} center={true}>
+          <Flex grow={2}>
+            <H1>{`<`}</H1>
+          </Flex>
+          <Flex grow={8} center={true}>
             <H1>PhraseSource</H1>
           </Flex>
           <Flex grow={2}>
