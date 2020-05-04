@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from './button/Button';
-import { H1, P } from './styles/text.style';
+import { LightH1, P } from './styles/text.style';
 import { Center, Horizontal, Vertical, FullWidth } from './styles/common.style';
 import * as TEXT from '../constants/commonText';
 import * as SIZE from '../constants/buttonSizes';
@@ -11,7 +11,7 @@ const Feed = () => {
     <FullWidth>
       <Vertical>
         <Center>
-          <H1>{TEXT.SITE_MOTTO}</H1>
+          <LightH1>{TEXT.SITE_MOTTO}</LightH1>
         </Center>
         <Center>
           <Horizontal>
@@ -23,7 +23,8 @@ const Feed = () => {
         <Center>
           <Button
             size={SIZE.BIG}
-            color={COLOR.GREEN}
+            color={COLOR.GREEN_LIME}
+            textColor={COLOR.BLACK}
             text={TEXT.MAIN_CALL_TO_ACTION}
           />
         </Center>

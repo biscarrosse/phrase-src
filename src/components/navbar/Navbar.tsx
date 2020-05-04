@@ -7,7 +7,7 @@ import React from 'react';
 // Deps:
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // import SelectField from './SelectField';
-import { H1 } from '../styles/text.style';
+import { H1, LightH1 } from '../styles/text.style';
 import {
   Center,
   Vertical,
@@ -43,7 +43,7 @@ const Navbar: React.FC = () => {
             <H1>{`<`}</H1>
           </Flex>
           <Flex grow={8} center={true}>
-            <H1>PhraseSource</H1>
+            <LightH1>PhraseSource</LightH1>
           </Flex>
           <Flex grow={2}>
             <FontAwesomeIcon

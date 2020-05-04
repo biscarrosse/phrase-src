@@ -6,6 +6,7 @@ export const RED = `RED`;
 export const ORANGE = `ORANGE`;
 export const YELLOW = `YELLOW`;
 export const GREEN = `GREEN`;
+export const GREEN_LIME = `GREEN_LIME`;
 export const TEAL = `TEAL`;
 export const BLUE = `BLUE`;
 export const PURPLE = `PURPLE`;
