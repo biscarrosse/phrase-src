@@ -20,7 +20,7 @@ export const Btn = styled.button<BtnProps>`
   }};
   width: ${props => {
     return props.size === SIZE.BIG
-      ? '80%'
+      ? '85%'
       : props.size === SIZE.MID
       ? '65%'
       : 'inherit';

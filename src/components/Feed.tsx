@@ -1,4 +1,13 @@
-import React from 'react';
+// React:
+import React, { useEffect } from 'react';
+// Router:
+import {
+  useHistory,
+  useLocation,
+  useParams,
+  useRouteMatch
+} from 'react-router-dom';
+// Components:
 import Button from './button/Button';
 import { LightH1, P } from './styles/text.style';
 import {
@@ -8,11 +17,21 @@ import {
   FullWidth,
   Margin
 } from './styles/common.style';
+// Constants:
 import * as TEXT from '../constants/commonText';
 import * as SIZE from '../constants/buttonSizes';
 import * as COLOR from '../constants/buttonColors';
 
 const Feed = () => {
+  const history = useHistory();
+  const location = useLocation();
+  const params = useParams();
+  const match = useRouteMatch();
+
+  useEffect(() => {
+    console.log('Feed did mnt', history, location, params, match);
+  }, []);
+
   return (
     <FullWidth>
       <Vertical>

@@ -1,9 +1,10 @@
 // React:
 import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom';
+import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 // Components:
 import Feed from './components/Feed';
 import About from './components/about/About';
+import Error from './components/error/Error';
 import Layout from './components/Layout';
 // style:
 import { GlobalStyle } from './components/styles/global.style';
@@ -32,8 +33,15 @@ library.add(
 const App: React.FC = () => {
   const routes = (
     <Switch>
-      <Route path="/" exact render={props => <Feed />} />
-      <Route path="/about" exact render={props => <About />} />
+      <Route path="/" exact>
+        <Feed />
+      </Route>
+      <Route path="/about" exact>
+        <About />
+      </Route>
+      <Route>
+        <Error />
+      </Route>
     </Switch>
   );
 
