@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-// import * as palette from './colors';
+import * as PALETTE from './colors.style';
 
 export const Container = styled.div`
   height: 100vh;
@@ -74,4 +74,20 @@ export const Flex = styled.div<FlexProps>`
   display: flex;
   flex-grow: ${props => `${props.grow}`};
   justify-content: ${props => (props.center ? `center` : `unset`)};
+`;
+
+export const Select = styled.select`
+  margin: 0;
+  padding: 0;
+  height: 2rem;
+  background: ${PALETTE.WHITE};
+  font-size: 14px;
+  border: none;
+
+  option {
+    background: ${PALETTE.WHITE};
+    display: flex;
+    white-space: pre;
+    min-height: 20px;
+  }
 `;

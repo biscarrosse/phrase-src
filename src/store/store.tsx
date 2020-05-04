@@ -8,11 +8,13 @@ import logger from 'redux-logger';
 import sidebarReducer from './sidebar/reducer';
 import modalReducer from './sidebar/reducer';
 import colorModeReducer from './colorMode/reducer';
+import languageReducer from './language/reducer';
 
 const rootReducer = combineReducers({
   sidebar: sidebarReducer,
   modal: modalReducer,
-  colorMode: colorModeReducer
+  colorMode: colorModeReducer,
+  language: languageReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

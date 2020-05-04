@@ -11,7 +11,6 @@ import {
 import { HomeSelect as Select } from './HomeSelect';
 import { HomeSiteMotto as Motto } from './HomeSiteMotto';
 import Button from '../button/Button';
-import { LightH1 } from '../styles/text.style';
 import { Center, Vertical, FullWidth, Margin } from '../styles/common.style';
 // Constants:
 import * as TEXT from '../../constants/commonText';
@@ -29,7 +28,7 @@ const Home = () => {
   }, []);
 
   return (
-    <FullWidth>
+    <FullWidth className="home">
       <Vertical>
         <Motto />
         <Select />
