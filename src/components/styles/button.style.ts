@@ -25,6 +25,7 @@ export const Btn = styled.button<BtnProps>`
       ? '65%'
       : 'inherit';
   }};
+  min-height: 5rem;
   background-color: ${props => {
     const found = PALETTE.colorList.find(i => i.colorName === props.color);
     if (found) return found.hexValue;

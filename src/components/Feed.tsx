@@ -47,24 +47,28 @@ const Feed = () => {
             <P>SPA</P>
           </Horizontal>
         </Center>
-        <Margin marginValue="1rem">
+        <Margin marginValue="1rem 0 1rem 0">
           <Center>
             <Button
               size={SIZE.BIG}
               color={COLOR.GREEN_LIME}
               textColor={COLOR.WHITE}
               text={TEXT.MAIN_CALL_TO_ACTION}
+              textSize={SIZE.BIG}
             />
           </Center>
         </Margin>
-        <Center>
-          <Button
-            size={SIZE.MID}
-            color={COLOR.BLUE}
-            textColor={COLOR.WHITE}
-            text={TEXT.SIGNUP_CALL_TO_ACTION}
-          />
-        </Center>
+        <Margin marginValue="0 0 1rem 0">
+          <Center>
+            <Button
+              size={SIZE.BIG}
+              color={COLOR.BLUE}
+              textColor={COLOR.WHITE}
+              text={TEXT.SIGNUP_CALL_TO_ACTION}
+              textSize={SIZE.MID}
+            />
+          </Center>
+        </Margin>
       </Vertical>
     </FullWidth>
   );
