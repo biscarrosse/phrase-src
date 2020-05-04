@@ -22,7 +22,7 @@ export const Btn = styled.button<BtnProps>`
     return props.size === SIZE.BIG
       ? '80%'
       : props.size === SIZE.MID
-      ? '200px'
+      ? '65%'
       : 'inherit';
   }};
   background-color: ${props => {
