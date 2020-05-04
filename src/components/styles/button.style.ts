@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import * as palette from './colors.style';
 
 interface BtnProps {
   size: string;
@@ -23,7 +24,14 @@ export const Btn = styled.button<BtnProps>`
       ? '200px'
       : 'inherit';
   }};
-  background-color: ${props => (props.color ? `${props.color}` : 'none')};
+  background-color: ${props => {
+    console.log('BG color prop', props.color);
+    console.log('color list', palette.colorList);
+    console.log(palette.colorList.find(i => i.colorName === props.color));
+    return palette.GREEN;
+    //return props.color ? `palette.${props.color}` : 'none';
+  }};
+
   color: ${props => (props.color ? `${props.theme.alwaysWhite}` : 'inherit')};
   border: none;
   border-radius: 0.2rem;

@@ -1,20 +1,17 @@
 import React from 'react';
 import Button from './button/Button';
 import { H1, P } from './styles/text.style';
-import {
-  Center,
-  Horizontal,
-  Vertical,
-  FullWidth,
-  Margin
-} from './styles/common.style';
+import { Center, Horizontal, Vertical, FullWidth } from './styles/common.style';
+import * as TEXT from '../constants/commonText';
+import * as SIZE from '../constants/buttonSizes';
+import * as COLOR from '../constants/buttonColors';
 
 const Feed = () => {
   return (
     <FullWidth>
       <Vertical>
         <Center>
-          <H1>Learn common daily phrases fast</H1>
+          <H1>{TEXT.SITE_MOTTO}</H1>
         </Center>
         <Center>
           <Horizontal>
@@ -24,7 +21,11 @@ const Feed = () => {
           </Horizontal>
         </Center>
         <Center>
-          <Button size="big" color="green" text="Gimme 10 sentences now!" />
+          <Button
+            size={SIZE.BIG}
+            color={COLOR.GREEN}
+            text={TEXT.MAIN_CALL_TO_ACTION}
+          />
         </Center>
       </Vertical>
     </FullWidth>
