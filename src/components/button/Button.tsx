@@ -5,13 +5,13 @@ import * as PALETTE from '../styles/colors.style';
 import * as SIZE from '../../constants/buttonSizes';
 
 interface BtnProps {
-  size: string; // 'big', 'mid', 'small'
-  color: string; // from palette
-  textColor: string; // from palette
-  text: string; // btn text
-  textSize: string; // btn text
-  disabled?: boolean; // true || false
-  // clickAction?: () => void; // no return func
+  size: string;
+  color: string;
+  textColor: string;
+  text: string;
+  textSize: string;
+  action?: () => void;
+  disabled?: boolean;
 }
 const Button = ({
   size,
@@ -19,7 +19,8 @@ const Button = ({
   textColor,
   text,
   textSize,
-  disabled
+  action,
+  disabled = false
 }: BtnProps) => {
   console.log(
     'Button props:',
@@ -44,6 +45,7 @@ const Button = ({
       size={size}
       color={disabled === true ? `${PALETTE.GREY}` : color}
       textColor={textColor}
+      onClick={action}
     >
       {size && gimmeText(size)}
     </Btn>

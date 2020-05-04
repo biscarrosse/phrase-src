@@ -9,3 +9,7 @@ export const LEVELS = [
   { id: 'b', name: 'B' },
   { id: 'c', name: 'C' }
 ];
+
+export const FROM = 'FROM';
+export const TO = 'TO';
+export const LEVEL = 'LEVEL';

@@ -27,6 +27,14 @@ const Home = () => {
     console.log('Feed did mnt', history, location, params, match);
   }, []);
 
+  const startExercise = () => {
+    console.log('startExercise');
+  };
+
+  const signup = () => {
+    console.log('signup');
+  };
+
   return (
     <FullWidth className="home">
       <Vertical>
@@ -40,6 +48,7 @@ const Home = () => {
               textColor={COLOR.WHITE}
               text={TEXT.MAIN_CALL_TO_ACTION}
               textSize={SIZE.BIG}
+              action={startExercise}
             />
           </Center>
         </Margin>
@@ -51,6 +60,7 @@ const Home = () => {
               textColor={COLOR.WHITE}
               text={TEXT.SIGNUP_CALL_TO_ACTION}
               textSize={SIZE.MID}
+              action={signup}
             />
           </Center>
         </Margin>

@@ -34,15 +34,15 @@ export const HomeSelect = () => {
         {i.name}
       </option>
     ));
+
   // React.SyntheticEvent
   const handleSelect = (e: any, id: string) => {
     e.preventDefault();
-    console.log('select--', e.target.value);
-    if (id === 'from') {
+    if (id === LANGS.FROM) {
       dispatch(setFrom({ language: e.target.value }));
       return;
     }
-    if (id === 'to') {
+    if (id === LANGS.TO) {
       dispatch(setTo({ language: e.target.value }));
       return;
     }
@@ -52,16 +52,16 @@ export const HomeSelect = () => {
   return (
     <Center className="select">
       <SpaceBetween width={85}>
-        <Select onChange={e => handleSelect(e, 'from')} id="from">
+        <Select onChange={e => handleSelect(e, LANGS.FROM)} id={LANGS.FROM}>
           {mapListOf(LANGS.LANGUAGE_OPTIONS)}
         </Select>
         <FontAwesomeIcon icon={'chevron-right'} size="1x" />
-        <Select onChange={e => handleSelect(e, 'to')} id="to">
+        <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
           {mapListOf(LANGS.LANGUAGE_OPTIONS)}
         </Select>
         <Horizontal>
           <P>Level:</P>
-          <Select onChange={e => handleSelect(e, 'level')} id="level">
+          <Select onChange={e => handleSelect(e, LANGS.LEVEL)} id={LANGS.LEVEL}>
             {mapListOf(LANGS.LEVELS)}
           </Select>
         </Horizontal>
