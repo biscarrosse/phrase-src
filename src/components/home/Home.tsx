@@ -8,21 +8,17 @@ import {
   useRouteMatch
 } from 'react-router-dom';
 // Components:
-import Button from './button/Button';
-import { LightH1, P } from './styles/text.style';
-import {
-  Center,
-  Horizontal,
-  Vertical,
-  FullWidth,
-  Margin
-} from './styles/common.style';
+import { HomeSelect as Select } from './HomeSelect';
+import { HomeSiteMotto as Motto } from './HomeSiteMotto';
+import Button from '../button/Button';
+import { LightH1 } from '../styles/text.style';
+import { Center, Vertical, FullWidth, Margin } from '../styles/common.style';
 // Constants:
-import * as TEXT from '../constants/commonText';
-import * as SIZE from '../constants/buttonSizes';
-import * as COLOR from '../constants/buttonColors';
+import * as TEXT from '../../constants/commonText';
+import * as SIZE from '../../constants/buttonSizes';
+import * as COLOR from '../../constants/buttonColors';
 
-const Feed = () => {
+const Home = () => {
   const history = useHistory();
   const location = useLocation();
   const params = useParams();
@@ -35,18 +31,8 @@ const Feed = () => {
   return (
     <FullWidth>
       <Vertical>
-        <Margin marginValue="1rem">
-          <Center>
-            <LightH1 style={{ textAlign: 'center' }}>{TEXT.SITE_MOTTO}</LightH1>
-          </Center>
-        </Margin>
-        <Center>
-          <Horizontal>
-            <P>ENG</P>
-            <P>--></P>
-            <P>SPA</P>
-          </Horizontal>
-        </Center>
+        <Motto />
+        <Select />
         <Margin marginValue="1rem 0 1rem 0">
           <Center>
             <Button
@@ -74,4 +60,4 @@ const Feed = () => {
   );
 };
 
-export default Feed;
+export default Home;

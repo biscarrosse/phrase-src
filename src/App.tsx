@@ -2,7 +2,7 @@
 import React from 'react';
 import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 // Components:
-import Feed from './components/Feed';
+import Home from './components/home/Home';
 import About from './components/about/About';
 import Error from './components/error/Error';
 import Layout from './components/Layout';
@@ -17,7 +17,8 @@ import {
   faLightbulb,
   faSkullCrossbones,
   faUserPlus,
-  faChevronRight
+  faChevronRight,
+  faChevronLeft
 } from '@fortawesome/free-solid-svg-icons';
 
 library.add(
@@ -27,14 +28,15 @@ library.add(
   faLightbulb,
   faSkullCrossbones,
   faUserPlus,
-  faChevronRight
+  faChevronRight,
+  faChevronLeft
 );
 
 const App: React.FC = () => {
   const routes = (
     <Switch>
       <Route path="/" exact>
-        <Feed />
+        <Home />
       </Route>
       <Route path="/about" exact>
         <About />

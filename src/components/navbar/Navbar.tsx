@@ -40,7 +40,7 @@ const Navbar: React.FC = () => {
       <Vertical>
         <Horizontal>
           <Flex grow={2}>
-            <H1>{`<`}</H1>
+            <FontAwesomeIcon icon={'chevron-left'} size="1x" />
           </Flex>
           <Flex grow={8} center={true}>
             <LightH1>PhraseSource</LightH1>

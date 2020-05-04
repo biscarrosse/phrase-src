@@ -39,6 +39,18 @@ export const Horizontal = styled.div`
   flex-direction: row;
 `;
 
+interface SBProps {
+  width: number;
+}
+export const SpaceBetween = styled.div<SBProps>`
+  margin: 0;
+  padding: 0;
+  width: ${props => `${props.width}%`};
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
 export const FullWidth = styled.div`
   min-width: 100%;
   width: 100%;
