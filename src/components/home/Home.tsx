@@ -35,30 +35,16 @@ const Home = () => {
   const match = useRouteMatch();
 
   useEffect(() => {
-    console.log('Feed did mnt - pulse', pulse);
     console.log('Feed did mnt', history, location, params, match);
   }, []);
 
-  const pica = () => {
-    setPulse(true);
-    setTimeout(() => console.log('pica is done', pulse), 1000);
-  };
-
   useEffect(() => {
-    console.log('Home effect, from, to, level', from, to, level);
     if (from !== null && to !== null && level !== null && pulse === false) {
-      console.log('will set pulse to true', pulse);
-      pica();
-      // (async function anyNameFunction() {
-      //   await setPulse(true);
-      // })(); // IIFE
-      // setTimeout(() => console.log(pulse), 1000);
+      setPulse(true);
     } else return;
   }, [from, to, level]);
 
-  const startExercise = () => {
-    console.log('startExercise');
-  };
+  const startExercise = () => history.push('/exercise');
 
   const signup = () => {
     console.log('signup');
@@ -70,7 +56,7 @@ const Home = () => {
         <Motto />
         <Select />
         <Margin marginValue="1rem 0 1rem 0">
-          <Pulse shouldPulse={pulse ? null : 'gogogo'}>
+          <Pulse shouldPulse={pulse ? null : 'goForIt'}>
             <Center>
               <Button
                 size={SIZE.BIG}
@@ -83,7 +69,6 @@ const Home = () => {
             </Center>
           </Pulse>
         </Margin>
-        <h1>{pulse ? 'jo kurva' : 'ne, do pice'}</h1>
         <Margin marginValue="0 0 1rem 0">
           <Center>
             <Button

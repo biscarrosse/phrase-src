@@ -18,10 +18,8 @@ const Pulse: React.FC<PulseProps> = ({ shouldPulse, children }) => {
   const [state, toggle] = useState(true);
 
   useEffect(() => {
-    console.log('incoming shouldPulse', shouldPulse);
     if (shouldPulse !== null) return;
     const interval = setInterval(async () => {
-      console.log('Pulse', shouldPulse, typeof shouldPulse);
       await toggle(!state);
     }, 3000);
     return () => clearInterval(interval);

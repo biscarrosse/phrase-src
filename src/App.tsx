@@ -5,7 +5,8 @@ import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import Error from './components/error/Error';
-import Pulse from './components/pulse/Pulse';
+import Toast from './components/toast/Toast';
+import Exercise from './components/exercise/Exercise';
 import Layout from './components/Layout';
 // style:
 import { GlobalStyle } from './components/styles/global.style';
@@ -42,8 +43,11 @@ const App: React.FC = () => {
       <Route path="/about" exact>
         <About />
       </Route>
-      <Route path="/pulse" exact>
-        <Pulse />
+      <Route path="/exercise" exact>
+        <Exercise />
+      </Route>
+      <Route path="/toast" exact>
+        <Toast />
       </Route>
       <Route>
         <Error />

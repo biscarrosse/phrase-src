@@ -25,6 +25,21 @@ export const Center = styled.div`
   justify-content: center;
 `;
 
+export const CenterVertical = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+`;
+
+export const CenterBothAxis = styled.div`
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
 export const Vertical = styled.div`
   margin: 0;
   padding: 0;

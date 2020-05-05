@@ -43,30 +43,3 @@ export const Btn = styled.button<BtnProps>`
   cursor: pointer;
   outline: inherit;
 `;
-
-const pulse = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
-const animation = () => {
-  return css`
-    ${pulse} {2s} infinite;
-  `;
-};
-
-const PulseButton = styled.button`
-  animation: ${animation};
-`;
-
-export const Pulse = styled.div`
-  border: 2px solid greenyellow;
-  background: #cca92c;
-  cursor: pointer;
-  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
-  animation: pulse 2s infinite;
-`;
