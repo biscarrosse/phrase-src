@@ -2,7 +2,8 @@
 import React from 'react';
 // Redux>
 import { setFrom, setTo, setLevel } from '../../store/language/actions';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { AppState } from '../../store/store';
 // Style:
 import {
   Center,
@@ -16,9 +17,11 @@ import Pulse from '../pulse/Pulse';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 // Constants:
 import * as LANGS from '../../constants/languages';
+import * as TEXT from '../../constants/commonText';
 
 export const HomeSelect = () => {
   const dispatch = useDispatch();
+  const { from, to, level } = useSelector((state: AppState) => state.language);
 
   interface LangProps {
     id: string;
@@ -53,20 +56,20 @@ export const HomeSelect = () => {
   return (
     <Center className="select">
       <SpaceBetween width={85}>
-        <Pulse shouldPulse={true}>
+        <Pulse shouldPulse={from}>
           <Select onChange={e => handleSelect(e, LANGS.FROM)} id={LANGS.FROM}>
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <FontAwesomeIcon icon={'chevron-right'} size="1x" />
-        <Pulse shouldPulse={false}>
+        <Pulse shouldPulse={to}>
           <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <Horizontal>
-          <P>Level:</P>
-          <Pulse shouldPulse={true}>
+          <P>{TEXT.LEVEL}</P>
+          <Pulse shouldPulse={level}>
             <Select
               onChange={e => handleSelect(e, LANGS.LEVEL)}
               id={LANGS.LEVEL}

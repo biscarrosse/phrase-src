@@ -12,19 +12,20 @@ import { useSpring, animated } from 'react-spring';
 100 % { transform: scale(1); }
 `*/
 interface PulseProps {
-  shouldPulse?: boolean;
+  shouldPulse?: string | null | boolean;
 }
 const Pulse: React.FC<PulseProps> = ({ shouldPulse, children }) => {
   const [state, toggle] = useState(true);
 
   useEffect(() => {
-    if (!shouldPulse) return;
+    console.log('incoming shouldPulse', shouldPulse);
+    if (shouldPulse !== null) return;
     const interval = setInterval(async () => {
-      console.log('This will run every second!', state);
+      console.log('Pulse', shouldPulse, typeof shouldPulse);
       await toggle(!state);
     }, 3000);
     return () => clearInterval(interval);
-  }, [state]);
+  }, [state, shouldPulse]);
 
   const { x } = useSpring({
     from: { x: 0 },
