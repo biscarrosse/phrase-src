@@ -9,12 +9,14 @@ import sidebarReducer from './sidebar/reducer';
 import modalReducer from './sidebar/reducer';
 import colorModeReducer from './colorMode/reducer';
 import languageReducer from './language/reducer';
+import toastReducer from './toast/reducer';
 
 const rootReducer = combineReducers({
   sidebar: sidebarReducer,
   modal: modalReducer,
   colorMode: colorModeReducer,
-  language: languageReducer
+  language: languageReducer,
+  toast: toastReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;

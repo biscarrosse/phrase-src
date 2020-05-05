@@ -46,9 +46,6 @@ const App: React.FC = () => {
       <Route path="/exercise" exact>
         <Exercise />
       </Route>
-      <Route path="/toast" exact>
-        <Toast />
-      </Route>
       <Route>
         <Error />
       </Route>
