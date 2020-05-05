@@ -5,28 +5,10 @@ import { useSelector } from 'react-redux';
 import { AppState } from '../../store/store';
 // Components:
 import { ToastWrap, Header } from '../styles/toast.style';
-import { H1, H2, P } from '../styles/text.style';
-import {
-  Center,
-  Horizontal,
-  Flex,
-  CenterBothAxis,
-  Vertical,
-  Margin
-} from '../styles/common.style';
-import * as PALETTE from '../styles/colors.style';
+import { H2 } from '../styles/text.style';
+import { Horizontal, Flex, Margin } from '../styles/common.style';
 // Libraries:
 import { GrClose } from 'react-icons/gr';
-
-interface ToastProps {
-  color: string;
-  emoticon: string;
-  text: string;
-  textSize?: string;
-  action?: () => void;
-  duration?: number;
-}
-//const Toast = ({ color, emoticon, text }: ToastProps) => {
 
 const Toast = () => {
   const { toastVisible, color, emoticon, text } = useSelector(
@@ -34,7 +16,7 @@ const Toast = () => {
   );
 
   return (
-    <ToastWrap className="toast">
+    <ToastWrap className={`toast ${toastVisible ? 'active' : ''}`}>
       <Header color={color}>
         <Horizontal style={{ alignItems: 'center', height: '100%' }}>
           <Flex grow={11}>
