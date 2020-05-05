@@ -11,12 +11,14 @@ import { useSpring, animated } from 'react-spring';
 75 % { transform: scale(1.03); }
 100 % { transform: scale(1); }
 `*/
-
-const Pulse: React.FC = ({ children }) => {
+interface PulseProps {
+  shouldPulse?: boolean;
+}
+const Pulse: React.FC<PulseProps> = ({ shouldPulse, children }) => {
   const [state, toggle] = useState(true);
-  const [shouldToggle, setShouldToggle] = useState(false);
 
   useEffect(() => {
+    if (!shouldPulse) return;
     const interval = setInterval(async () => {
       console.log('This will run every second!', state);
       await toggle(!state);

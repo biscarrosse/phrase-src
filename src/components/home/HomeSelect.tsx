@@ -53,20 +53,27 @@ export const HomeSelect = () => {
   return (
     <Center className="select">
       <SpaceBetween width={85}>
-        <Pulse>
+        <Pulse shouldPulse={true}>
           <Select onChange={e => handleSelect(e, LANGS.FROM)} id={LANGS.FROM}>
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <FontAwesomeIcon icon={'chevron-right'} size="1x" />
-        <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
-          {mapListOf(LANGS.LANGUAGE_OPTIONS)}
-        </Select>
+        <Pulse shouldPulse={false}>
+          <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
+            {mapListOf(LANGS.LANGUAGE_OPTIONS)}
+          </Select>
+        </Pulse>
         <Horizontal>
           <P>Level:</P>
-          <Select onChange={e => handleSelect(e, LANGS.LEVEL)} id={LANGS.LEVEL}>
-            {mapListOf(LANGS.LEVELS)}
-          </Select>
+          <Pulse shouldPulse={true}>
+            <Select
+              onChange={e => handleSelect(e, LANGS.LEVEL)}
+              id={LANGS.LEVEL}
+            >
+              {mapListOf(LANGS.LEVELS)}
+            </Select>
+          </Pulse>
         </Horizontal>
       </SpaceBetween>
     </Center>
