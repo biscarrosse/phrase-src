@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import * as PALETTE from './colors.style';
 import * as SIZE from '../../constants/buttonSizes';
 import * as POSITION from '../../constants/position';
@@ -42,4 +42,31 @@ export const Btn = styled.button<BtnProps>`
   font: inherit;
   cursor: pointer;
   outline: inherit;
+`;
+
+const pulse = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`;
+
+const animation = () => {
+  return css`
+    ${pulse} {2s} infinite;
+  `;
+};
+
+const PulseButton = styled.button`
+  animation: ${animation};
+`;
+
+export const Pulse = styled.div`
+  border: 2px solid greenyellow;
+  background: #cca92c;
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  animation: pulse 2s infinite;
 `;
