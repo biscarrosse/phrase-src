@@ -32,12 +32,16 @@ export const HomeSelect = () => {
     name: string;
   }
 
-  const mapListOf = (langs: Array<LangProps> | Array<LevelProps>) =>
-    langs.map(i => (
-      <option key={i.id} value={i.id}>
-        {i.name}
-      </option>
-    ));
+  const mapListOf = (langs: Array<LangProps> | Array<LevelProps>) => {
+    // TODO: persist value from store if there is any
+    return langs.map(i => {
+      return (
+        <option key={i.id} value={i.id}>
+          {i.name}
+        </option>
+      );
+    });
+  };
 
   // React.SyntheticEvent
   const handleSelect = (e: any, id: string) => {

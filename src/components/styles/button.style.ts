@@ -25,7 +25,14 @@ export const Btn = styled.button<BtnProps>`
       ? '65%'
       : 'inherit';
   }};
-  min-height: 5rem;
+  min-height: ${props => {
+    return props.size === SIZE.BIG
+      ? '5rem'
+      : props.size === SIZE.MID
+      ? '3rem'
+      : '2rem';
+  }};
+
   background-color: ${props => {
     const found = PALETTE.colorList.find(i => i.colorName === props.color);
     if (found) return found.hexValue;

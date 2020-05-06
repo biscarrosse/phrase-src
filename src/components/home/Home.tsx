@@ -22,6 +22,7 @@ import * as TEXT from '../../constants/commonText';
 import * as SIZE from '../../constants/buttonSizes';
 import * as EMOJI from '../../constants/emoticons';
 import * as COLOR from '../../constants/buttonColors';
+import * as NAV from '../../constants/navigation';
 
 const Home = () => {
   const [pulse, setPulse] = useState<boolean>(false);
@@ -62,7 +63,7 @@ const Home = () => {
       to !== TEXT.DUMMY &&
       level !== TEXT.DUMMY
     ) {
-      history.push('/exercise');
+      history.push(NAV.EXERCISE);
       return;
     } else {
       dispatch(
