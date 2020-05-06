@@ -4,11 +4,6 @@ import * as PALETTE from './colors.style';
 export const ToastWrap = styled.div.attrs(props => ({
   className: props.className
 }))`
-  & .active {
-    border: 2px solid green;
-    transform: translateX(0);
-    transition: all 0.3s;
-  }
   transform: translateX(100vw);
   transition: all 0.3s;
 
@@ -28,6 +23,11 @@ export const ToastWrap = styled.div.attrs(props => ({
   -webkit-box-shadow: 10px 10px 62px -4px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 10px 10px 62px -4px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 62px -4px rgba(0, 0, 0, 0.75);
+
+  &.active {
+    transform: none;
+    transition: all 0.3s;
+  }
 `;
 
 interface HeaderProps {

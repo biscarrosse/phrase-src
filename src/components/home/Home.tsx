@@ -1,8 +1,9 @@
 // React:
 import React, { useEffect, useState } from 'react';
 // Redux:
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
+import { openToast, closeToast } from '../../store/toast/actions';
 // Router:
 import {
   useHistory,
@@ -19,15 +20,15 @@ import { Center, Vertical, FullWidth, Margin } from '../styles/common.style';
 // Constants:
 import * as TEXT from '../../constants/commonText';
 import * as SIZE from '../../constants/buttonSizes';
+import * as EMOJI from '../../constants/emoticons';
 import * as COLOR from '../../constants/buttonColors';
 
 const Home = () => {
-  // interface PulseState {
-  //   shouldPulse: boolean;
-  // }
   const [pulse, setPulse] = useState<boolean>(false);
 
   const { from, to, level } = useSelector((state: AppState) => state.language);
+
+  const dispatch = useDispatch();
 
   const history = useHistory();
   const location = useLocation();
@@ -44,7 +45,21 @@ const Home = () => {
     } else return;
   }, [from, to, level]);
 
-  const startExercise = () => history.push('/exercise');
+  const startExercise = () => {
+    if (from !== null && to !== null && level !== null) {
+      history.push('/exercise');
+      return;
+    } else {
+      dispatch(
+        openToast({
+          toastVisible: true,
+          color: COLOR.YELLOW,
+          emoticon: EMOJI.ANGRY,
+          text: TEXT.MISSING_LANGUAGE_OPTIONS
+        })
+      );
+    }
+  };
 
   const signup = () => {
     console.log('signup');
