@@ -68,7 +68,7 @@ export const HomeSelect = () => {
           </Select>
         </Pulse>
         <Horizontal>
-          <P>{TEXT.LEVEL}</P>
+          <FontAwesomeIcon icon={'chevron-right'} size="1x" />
           <Pulse shouldPulse={level}>
             <Select
               onChange={e => handleSelect(e, LANGS.LEVEL)}

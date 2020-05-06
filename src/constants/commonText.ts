@@ -1,3 +1,4 @@
+export const DUMMY = `dummy`;
 export const LEVEL = `Level:`;
 export const MISSING_LANGUAGE_OPTIONS = `Select language options.`;
 export const SITE_MOTTO = `Learn common daily phrases fast`;

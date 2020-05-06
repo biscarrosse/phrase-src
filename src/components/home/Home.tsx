@@ -40,13 +40,28 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
-    if (from !== null && to !== null && level !== null && pulse === false) {
+    if (
+      from !== null &&
+      to !== null &&
+      level !== null &&
+      pulse === false &&
+      from !== TEXT.DUMMY &&
+      to !== TEXT.DUMMY &&
+      level !== TEXT.DUMMY
+    ) {
       setPulse(true);
     } else return;
   }, [from, to, level]);
 
   const startExercise = () => {
-    if (from !== null && to !== null && level !== null) {
+    if (
+      from !== null &&
+      to !== null &&
+      level !== null &&
+      from !== TEXT.DUMMY &&
+      to !== TEXT.DUMMY &&
+      level !== TEXT.DUMMY
+    ) {
       history.push('/exercise');
       return;
     } else {
