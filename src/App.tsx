@@ -5,7 +5,6 @@ import { Route, Switch, RouteComponentProps } from 'react-router-dom';
 import Home from './components/home/Home';
 import About from './components/about/About';
 import Error from './components/error/Error';
-import Toast from './components/toast/Toast';
 import Exercise from './components/exercise/Exercise';
 import Layout from './components/Layout';
 // style:

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import * as PALETTE from './colors.style';
 
 export const Container = styled.div`
+  position: relative;
   height: 100vh;
   display: flex;
   flex-grow: 12;
@@ -9,6 +10,9 @@ export const Container = styled.div`
 `;
 
 export const Wrap = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   min-height: 100vh;
   margin: 0;
