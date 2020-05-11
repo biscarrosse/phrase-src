@@ -10,10 +10,10 @@ const initState = {
 
 const exerciseReducer = (state = initState, action: ExerciseAction) => {
   switch (action.type) {
-    // case SHOW_ANSWER:
-    //   return { ...state, from: action.payload };
-    // case SHOW_QUESTION:
-    //   return { ...state, to: action.payload };
+    case SHOW_ANSWER:
+      return { ...state, isQuestion: false, isAnswer: true };
+    case SHOW_QUESTION:
+      return { ...state, isQuestion: true, isAnswer: false };
     default:
       return state;
   }

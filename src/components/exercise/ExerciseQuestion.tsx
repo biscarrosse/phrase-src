@@ -17,24 +17,39 @@ import { H1, H2, P } from '../styles/text.style';
 // Components:
 import Card from '../card/Card';
 import Button from '../button/Button';
-import ExerciseAnswer from './ExerciseAnswer';
-import ExerciseQuestion from './ExerciseQuestion';
 // Constants:
 import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
 
-const Exercise = () => {
-  const { isQuestion } = useSelector((state: AppState) => state.exercise);
+const ExerciseQuestion = () => {
+  const dispatch = useDispatch();
 
-  const one = () => console.log('one');
-  const two = () => console.log('two');
-  const three = () => console.log('three');
-  // show card --> slide to see answer via react-spring
+  const handleAnswer = () => {
+    dispatch(showAnswer());
+    console.log('handleAnswer');
+  };
 
-  const result = isQuestion ? <ExerciseQuestion /> : <ExerciseAnswer />;
-
-  return <>{result}</>;
+  return (
+    <Vertical className="exercise" style={{ width: '100%' }}>
+      <Margin marginValue="1rem 0">
+        <Card
+          color={COLOR.WHITE}
+          text="Test string for Question."
+          textSize={SIZE.MID}
+        />
+      </Margin>
+      <Button
+        size={SIZE.SMALL}
+        color={COLOR.BLUE}
+        textColor={COLOR.WHITE}
+        text={TEXT.SHOW_ANSWER}
+        textSize={SIZE.MID}
+        action={handleAnswer}
+        fullWidth
+      />
+    </Vertical>
+  );
 };
 
-export default Exercise;
+export default ExerciseQuestion;
