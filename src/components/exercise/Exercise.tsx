@@ -23,35 +23,37 @@ const About = () => {
   // repeat btn
   // got it btn
   return (
-    <>
-      <Vertical style={{ width: '100%' }}>
-        <Card />
-        <Horizontal>
-          <SpaceBetween width={100}>
-            <Button
-              size={SIZE.SMALL}
-              color={COLOR.YELLOW}
-              textColor={COLOR.WHITE}
-              text={TEXT.REPEAT}
-              textSize={SIZE.MID}
-              action={one}
-              fullWidth
-              left
-            />
-            <Button
-              size={SIZE.SMALL}
-              color={COLOR.GREEN_LIME}
-              textColor={COLOR.WHITE}
-              text={TEXT.GOT_IT_NEXT}
-              textSize={SIZE.MID}
-              action={two}
-              fullWidth
-              right
-            />
-          </SpaceBetween>
-        </Horizontal>
-      </Vertical>
-    </>
+    <Vertical className="exercise" style={{ width: '100%' }}>
+      <Card
+        color={COLOR.WHITE}
+        text="test string for card component"
+        textSize={SIZE.MID}
+      />
+      <Horizontal>
+        <SpaceBetween width={100}>
+          <Button
+            size={SIZE.SMALL}
+            color={COLOR.YELLOW}
+            textColor={COLOR.WHITE}
+            text={TEXT.REPEAT}
+            textSize={SIZE.MID}
+            action={one}
+            fullWidth
+            left
+          />
+          <Button
+            size={SIZE.SMALL}
+            color={COLOR.GREEN_LIME}
+            textColor={COLOR.WHITE}
+            text={TEXT.GOT_IT_NEXT}
+            textSize={SIZE.MID}
+            action={two}
+            fullWidth
+            right
+          />
+        </SpaceBetween>
+      </Horizontal>
+    </Vertical>
   );
 };
 

@@ -1,9 +1,14 @@
+// React:
 import React from 'react';
+// Style:
 import { Btn } from '../styles/button.style';
 import { H1, H2, P } from '../styles/text.style';
+// Constants
 import * as PALETTE from '../styles/colors.style';
 import * as SIZE from '../../constants/buttonSizes';
 import * as POSITION from '../../constants/position';
+// Utils:
+import { gimmeText } from '../../utils/utils';
 
 interface BtnProps {
   size: string;
@@ -42,14 +47,6 @@ const Button = ({
     right
   );
 
-  const gimmeText = (size: string): JSX.Element => {
-    if (textSize === SIZE.BIG)
-      return <H1 style={{ padding: '0.4rem' }}>{text}</H1>;
-    if (textSize === SIZE.MID)
-      return <H2 style={{ padding: '0.3rem' }}>{text}</H2>;
-    return <P style={{ padding: '0.2rem' }}>{text}</P>;
-  };
-
   return (
     <Btn
       className="button"
@@ -60,7 +57,7 @@ const Button = ({
       onClick={action}
       position={left ? POSITION.LEFT : right ? POSITION.RIGHT : POSITION.UNSET}
     >
-      {size && gimmeText(size)}
+      {textSize && text && gimmeText(textSize, text)}
     </Btn>
   );
 };
