@@ -2,11 +2,11 @@ import React from 'react';
 import {
   Horizontal,
   Vertical,
-  Flex,
+  Margin,
   SpaceBetween
 } from '../styles/common.style';
 // import { Btn } from '../styles/button.style';
-// import { H1, H2, P } from '../styles/text.style';
+import { H1, H2, P } from '../styles/text.style';
 // import * as PALETTE from '../styles/colors.style';
 // Components:
 import Card from '../card/Card';
@@ -18,16 +18,28 @@ import * as COLOR from '../../constants/buttonColors';
 const About = () => {
   const one = () => console.log('one');
   const two = () => console.log('two');
+  const three = () => console.log('three');
   // show card --> slide to see answer via react-spring
   // listen btn
   // repeat btn
   // got it btn
   return (
     <Vertical className="exercise" style={{ width: '100%' }}>
-      <Card
-        color={COLOR.WHITE}
-        text="test string for card component"
+      <Margin marginValue="1rem 0">
+        <Card
+          color={COLOR.WHITE}
+          text="Test string for card component - this should be translated by user."
+          textSize={SIZE.MID}
+        />
+      </Margin>
+      <Button
+        size={SIZE.SMALL}
+        color={COLOR.BLUE}
+        textColor={COLOR.WHITE}
+        text={TEXT.SHOW_ANSWER}
         textSize={SIZE.MID}
+        action={three}
+        fullWidth
       />
       <Horizontal>
         <SpaceBetween width={100}>

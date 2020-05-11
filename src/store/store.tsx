@@ -10,13 +10,15 @@ import modalReducer from './sidebar/reducer';
 import colorModeReducer from './colorMode/reducer';
 import languageReducer from './language/reducer';
 import toastReducer from './toast/reducer';
+import exerciseReducer from './exercise/reducer';
 
 const rootReducer = combineReducers({
   sidebar: sidebarReducer,
   modal: modalReducer,
   colorMode: colorModeReducer,
   language: languageReducer,
-  toast: toastReducer
+  toast: toastReducer,
+  exercise: exerciseReducer
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
