@@ -6,6 +6,7 @@ import * as POSITION from '../../constants/position';
 interface BtnProps {
   size: string;
   color: string;
+  fullWidth: boolean;
   textColor: string;
   position?: string;
   // onClick?: () => void;
@@ -14,12 +15,14 @@ export const Btn = styled.button<BtnProps>`
   margin: 0;
   padding: 0;
   margin: ${props => {
-    if (props.position === POSITION.LEFT) return '0 1rem 0 0';
-    if (props.position === POSITION.RIGHT) return '0 0 0 1rem';
+    if (props.position === POSITION.LEFT) return '0 0.5rem 0 0';
+    if (props.position === POSITION.RIGHT) return '0 0 0 0.5rem';
     return '0';
   }};
   width: ${props => {
-    return props.size === SIZE.BIG
+    return props.fullWidth === true
+      ? '100%'
+      : props.size === SIZE.BIG
       ? '85%'
       : props.size === SIZE.MID
       ? '65%'

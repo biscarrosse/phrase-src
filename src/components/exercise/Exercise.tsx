@@ -1,8 +1,15 @@
 import React from 'react';
-import { Horizontal, Vertical, Flex } from '../styles/common.style';
+import {
+  Horizontal,
+  Vertical,
+  Flex,
+  SpaceBetween
+} from '../styles/common.style';
 // import { Btn } from '../styles/button.style';
 // import { H1, H2, P } from '../styles/text.style';
 // import * as PALETTE from '../styles/colors.style';
+// Components:
+import Card from '../card/Card';
 import Button from '../button/Button';
 import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
@@ -18,9 +25,9 @@ const About = () => {
   return (
     <>
       <Vertical style={{ width: '100%' }}>
-        <p>Card</p>
+        <Card />
         <Horizontal>
-          <Flex grow={6}>
+          <SpaceBetween width={100}>
             <Button
               size={SIZE.SMALL}
               color={COLOR.YELLOW}
@@ -28,9 +35,9 @@ const About = () => {
               text={TEXT.REPEAT}
               textSize={SIZE.MID}
               action={one}
+              fullWidth
+              left
             />
-          </Flex>
-          <Flex grow={6}>
             <Button
               size={SIZE.SMALL}
               color={COLOR.GREEN_LIME}
@@ -38,8 +45,10 @@ const About = () => {
               text={TEXT.GOT_IT_NEXT}
               textSize={SIZE.MID}
               action={two}
+              fullWidth
+              right
             />
-          </Flex>
+          </SpaceBetween>
         </Horizontal>
       </Vertical>
     </>
