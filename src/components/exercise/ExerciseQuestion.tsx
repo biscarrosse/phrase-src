@@ -1,5 +1,5 @@
 // React:
-import React from 'react';
+import React, { useEffect } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
@@ -21,9 +21,20 @@ import Button from '../button/Button';
 import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
+import { fakeQA } from '../../constants/dummy';
 
 const ExerciseQuestion = () => {
   const dispatch = useDispatch();
+
+  const {
+    from: { language: originLanguage },
+    to: { language: targetLanguage },
+    level: { level: selectedLevel }
+  } = useSelector((state: AppState) => state.language);
+
+  useEffect(() => {
+    console.log('exercise question DID UPDATE', fakeQA);
+  }, []);
 
   const handleAnswer = () => {
     dispatch(showAnswer());

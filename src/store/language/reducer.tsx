@@ -1,9 +1,9 @@
 import { FROM, TO, LEVEL, LanguageAction, LevelAction } from './types';
 
 const initState = {
-  from: null,
-  to: null,
-  level: null
+  from: { language: null },
+  to: { language: null },
+  level: { level: null }
 };
 
 const languageReducer = (

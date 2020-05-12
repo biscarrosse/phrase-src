@@ -1,4 +1,9 @@
-import { SHOW_ANSWER, SHOW_QUESTION } from './types';
+import {
+  SHOW_ANSWER,
+  SHOW_QUESTION,
+  LOAD_PHRASES,
+  PhrasesPayload
+} from './types';
 
 export const showAnswer = () => {
   return { type: SHOW_ANSWER };
@@ -6,4 +11,8 @@ export const showAnswer = () => {
 
 export const showQuestion = () => {
   return { type: SHOW_QUESTION };
+};
+
+export const loadPhrases = (phrases: PhrasesPayload) => {
+  return { type: LOAD_PHRASES, payload: phrases };
 };

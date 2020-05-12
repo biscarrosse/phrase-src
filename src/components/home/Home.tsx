@@ -27,7 +27,11 @@ import * as NAV from '../../constants/navigation';
 const Home = () => {
   const [pulse, setPulse] = useState<boolean>(false);
 
-  const { from, to, level } = useSelector((state: AppState) => state.language);
+  const {
+    from: { language: originLanguage },
+    to: { language: targetLanguage },
+    level: { level: selectedLevel }
+  } = useSelector((state: AppState) => state.language);
 
   const dispatch = useDispatch();
 
@@ -42,26 +46,28 @@ const Home = () => {
 
   useEffect(() => {
     if (
-      from !== null &&
-      to !== null &&
-      level !== null &&
-      pulse === false &&
-      from !== TEXT.DUMMY &&
-      to !== TEXT.DUMMY &&
-      level !== TEXT.DUMMY
+      originLanguage !== null &&
+      targetLanguage !== null &&
+      selectedLevel !== null &&
+      pulse === false
+      // &&
+      // originLanguage !== TEXT.DUMMY &&
+      // targetLanguage !== TEXT.DUMMY &&
+      // selectedLevel !== TEXT.DUMMY
     ) {
       setPulse(true);
     } else return;
-  }, [from, to, level]);
+  }, [originLanguage, targetLanguage, selectedLevel]);
 
   const startExercise = () => {
     if (
-      from !== null &&
-      to !== null &&
-      level !== null &&
-      from !== TEXT.DUMMY &&
-      to !== TEXT.DUMMY &&
-      level !== TEXT.DUMMY
+      originLanguage !== null &&
+      targetLanguage !== null &&
+      selectedLevel !== null
+      // &&
+      // originLanguage !== TEXT.DUMMY &&
+      // targetLanguage !== TEXT.DUMMY &&
+      // selectedLevel !== TEXT.DUMMY
     ) {
       history.push(NAV.EXERCISE);
       return;

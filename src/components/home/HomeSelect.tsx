@@ -21,7 +21,11 @@ import * as TEXT from '../../constants/commonText';
 
 export const HomeSelect = () => {
   const dispatch = useDispatch();
-  const { from, to, level } = useSelector((state: AppState) => state.language);
+  const {
+    from: { language: originLanguage },
+    to: { language: targetLanguage },
+    level: { level: selectedLevel }
+  } = useSelector((state: AppState) => state.language);
 
   interface LangProps {
     id: string;
@@ -60,20 +64,20 @@ export const HomeSelect = () => {
   return (
     <Center className="select">
       <SpaceBetween width={85}>
-        <Pulse shouldPulse={from}>
+        <Pulse shouldPulse={originLanguage}>
           <Select onChange={e => handleSelect(e, LANGS.FROM)} id={LANGS.FROM}>
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <FontAwesomeIcon icon={'chevron-right'} size="1x" />
-        <Pulse shouldPulse={to}>
+        <Pulse shouldPulse={targetLanguage}>
           <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <Horizontal>
           <FontAwesomeIcon icon={'chevron-right'} size="1x" />
-          <Pulse shouldPulse={level}>
+          <Pulse shouldPulse={selectedLevel}>
             <Select
               onChange={e => handleSelect(e, LANGS.LEVEL)}
               id={LANGS.LEVEL}
