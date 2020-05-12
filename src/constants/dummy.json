@@ -4,16 +4,16 @@
     "block_10": {
       "phrases": [
         {
-          "id": 3,
-          "english": "english 3",
-          "spanish": "spanish 3",
-          "czech": "czech 3"
+          "id": 1,
+          "english": "english 1",
+          "spanish": "spanish 1",
+          "czech": "czech 1"
         },
         {
-          "id": 4,
-          "english": "english 4",
-          "spanish": "spanish 4",
-          "czech": "czech 4"
+          "id": 2,
+          "english": "english 2",
+          "spanish": "spanish 2",
+          "czech": "czech 2"
         }
       ]
     },

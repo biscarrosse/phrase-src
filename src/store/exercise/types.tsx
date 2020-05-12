@@ -3,56 +3,85 @@ export const SHOW_QUESTION = `SHOW_QUESTION`;
 export const LOAD_PHRASES = `LOAD_PHRASES`;
 
 export interface ExerciseAction {
-  type: typeof SHOW_ANSWER | typeof SHOW_QUESTION;
+  type: typeof SHOW_ANSWER | typeof SHOW_QUESTION | typeof LOAD_PHRASES;
+  payload?: BlockOf100;
 }
 
-interface Phrase {
+export interface Phrase {
   id: string;
-  [key: string]: string;
+  english: string;
+  spanish: string;
+  czech: string;
 }
-
-// n keys of x name:
-export interface PhrasesPayload {
-  [key: string]: Phrase;
-}
-
-export interface EachPhrase {
-  id: string; // { id: 7, english: 'english 7', spanish: 'spanish 7', czech: 'czech 7' }
-  [key: string]: string;
-}
-
 export interface Phrases {
-  id: string;
-  phrases: Array<EachPhrase>;
+  phrases: Array<Phrase>;
 }
+export interface BlockOf10 {
+  [key: string]: Phrases;
+}
+export interface BlockOf100 {
+  name: string;
+  data_of_100: BlockOf10;
+}
+// {
+//   "name": "block_of_100_phrases",
+//   "data_of_100": {
+//     "block_10": {
+//       "phrases": [
+//         {
+//           "id": 3,
+//           "english": "english 3",
+//           "spanish": "spanish 3",
+//           "czech": "czech 3"
+//         },
+//         {
+//           "id": 4,
+//           "english": "english 4",
+//           "spanish": "spanish 4",
+//           "czech": "czech 4"
+//         }
+//       ]
+//     },
+//     "block_20": {
+//       "phrases": [
+//         {
+//           "id": 3,
+//           "english": "english 3",
+//           "spanish": "spanish 3",
+//           "czech": "czech 3"
+//         },
+//         {
+//           "id": 4,
+//           "english": "english 4",
+//           "spanish": "spanish 4",
+//           "czech": "czech 4"
+//         }
+//       ]
+//     }
+//   }
+// }
 
 // {
-//   name: "language_data",
+//   name: "test",
 //   items: {
-//       "block_1": {
+//       "a": {
 //           id: 1,
 //           size: 10
 //       },
-//       "block_2": {
-//           "phrases": {
-//                id: 2,
-//                size: 34
-//            },
-//            {
-//                id: 2,
-//                size: 34
-//            }
+//       "b": {
+//           id: 2,
+//           size: 34
 //       }
 //   }
 // }
-export interface Item {
-  id: number;
-  size: number;
-}
+// export interface Item {
+//   id: number;
+//   size: number;
+// }
 
-export interface Example {
-  name: string;
-  items: {
-    [key: string]: Item;
-  };
-}
+// export interface Example {
+//   name: string;
+//   items: {
+//     [key: string]: Item;
+//   };
+// }

@@ -2,8 +2,7 @@ import {
   SHOW_ANSWER,
   SHOW_QUESTION,
   LOAD_PHRASES,
-  ExerciseAction,
-  PhrasesPayload
+  ExerciseAction
 } from './types';
 
 const initState = {
@@ -11,20 +10,17 @@ const initState = {
   isAnswer: false,
   question: null,
   answer: null,
-  phrases: {}
+  phrases_data: {}
 };
 
-const exerciseReducer = (
-  state = initState,
-  action: ExerciseAction | PhrasesPayload
-) => {
+const exerciseReducer = (state = initState, action: ExerciseAction) => {
   switch (action.type) {
     case SHOW_ANSWER:
       return { ...state, isQuestion: false, isAnswer: true };
     case SHOW_QUESTION:
       return { ...state, isQuestion: true, isAnswer: false };
     case LOAD_PHRASES:
-      return { ...state }; // , phrases: ...action.payload
+      return { ...state, phrases_data: { ...action.payload } }; // ...interface BlockOf100
     default:
       return state;
   }

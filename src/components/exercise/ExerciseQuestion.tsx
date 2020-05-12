@@ -3,7 +3,11 @@ import React, { useEffect } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
-import { showAnswer, showQuestion } from '../../store/exercise/actions';
+import {
+  showAnswer,
+  showQuestion,
+  loadPhrases
+} from '../../store/exercise/actions';
 // Style:
 import {
   Horizontal,
@@ -11,9 +15,7 @@ import {
   Margin,
   SpaceBetween
 } from '../styles/common.style';
-// import { Btn } from '../styles/button.style';
 import { H1, H2, P } from '../styles/text.style';
-// import * as PALETTE from '../styles/colors.style';
 // Components:
 import Card from '../card/Card';
 import Button from '../button/Button';
@@ -21,7 +23,11 @@ import Button from '../button/Button';
 import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
-import { fakeQA } from '../../constants/dummy';
+import fakeData from '../../constants/dummy.json';
+// Types:
+import { BlockOf100 } from '../../store/exercise/types';
+// Libraries:
+import { random } from 'lodash';
 
 const ExerciseQuestion = () => {
   const dispatch = useDispatch();
@@ -32,8 +38,38 @@ const ExerciseQuestion = () => {
     level: { level: selectedLevel }
   } = useSelector((state: AppState) => state.language);
 
+  // TODO: those any
+  const fakeApiCall = (miliseconds: number, fakeData: any): any => {
+    return new Promise((resolve, reject): any => {
+      setTimeout(() => {
+        if (true) resolve(fakeData);
+        reject({ reason: 'just rejected' });
+      }, miliseconds);
+    });
+  };
+
   useEffect(() => {
-    console.log('exercise question DID UPDATE', fakeQA);
+    console.log(
+      'exercise question DID MNT',
+      originLanguage,
+      targetLanguage,
+      selectedLevel
+    );
+
+    const asyncCall = async () => {
+      const miliseconds = random(500, 2000);
+      console.log('miliseconds', miliseconds);
+      try {
+        const data: BlockOf100 = await fakeApiCall(miliseconds, fakeData);
+        console.log('data from API', data);
+        dispatch(loadPhrases(data));
+        return data;
+      } catch (err) {
+        throw new Error(err);
+      }
+    };
+
+    originLanguage && targetLanguage && selectedLevel && asyncCall();
   }, []);
 
   const handleAnswer = () => {
