@@ -3,6 +3,7 @@ import {
   SHOW_QUESTION,
   LOAD_PHRASES,
   SET_BLOCK,
+  SET_BLOCK_NAME,
   INCREASE_IDX,
   ExerciseAction,
   BlockOf100
@@ -14,6 +15,7 @@ interface InitState {
   isAnswer: boolean;
   phrases_data: BlockOf100 | {};
   completedBlocks: string[];
+  currentBlockName: string;
   currentBlock: [];
   currentPhraseIdx: 0;
 }
@@ -22,6 +24,7 @@ const initState: InitState = {
   isAnswer: false,
   phrases_data: {},
   completedBlocks: ['duck'],
+  currentBlockName: '',
   currentBlock: [],
   currentPhraseIdx: 0
 };
@@ -36,6 +39,8 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
       return { ...state, phrases_data: { ...action.payload } }; // ...interface BlockOf100
     case SET_BLOCK:
       return { ...state, currentBlock: action.payload }; // Phrase[]
+    case SET_BLOCK_NAME:
+      return { ...state, currentBlockName: action.payload };
     case INCREASE_IDX:
       return { ...state, currentPhraseIdx: state.currentPhraseIdx + 1 };
     default:

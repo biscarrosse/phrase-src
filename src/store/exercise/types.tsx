@@ -2,6 +2,7 @@ export const SHOW_ANSWER = `SHOW_ANSWER`;
 export const SHOW_QUESTION = `SHOW_QUESTION`;
 export const LOAD_PHRASES = `LOAD_PHRASES`;
 export const SET_BLOCK = `SET_BLOCK`;
+export const SET_BLOCK_NAME = `SET_BLOCK_NAME`;
 export const INCREASE_IDX = `INCREASE_IDX`;
 
 export interface ExerciseAction {
@@ -10,6 +11,7 @@ export interface ExerciseAction {
     | typeof SHOW_QUESTION
     | typeof LOAD_PHRASES
     | typeof SET_BLOCK
+    | typeof SET_BLOCK_NAME
     | typeof INCREASE_IDX;
   payload?: BlockOf100 | Phrases;
 }

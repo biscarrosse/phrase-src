@@ -3,7 +3,13 @@ import React, { useEffect } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
-import { increasePhraseIdx, showQuestion } from '../../store/exercise/actions';
+import {
+  increasePhraseIdx,
+  showQuestion,
+  setCurrentBlockName,
+  setBlock
+} from '../../store/exercise/actions';
+import { BlockOf100, Phrase } from '../../store/exercise/types';
 // Style:
 import {
   Horizontal,
@@ -35,6 +41,7 @@ const ExerciseAnswer = () => {
     phrases_data,
     completedBlocks,
     currentBlock,
+    currentBlockName,
     currentPhraseIdx
   } = useSelector((state: AppState) => state.exercise);
 
@@ -47,10 +54,23 @@ const ExerciseAnswer = () => {
   };
 
   const handleNext = () => {
-    // +1 to currentPhraseIdx if is not last
-    if (currentPhraseIdx === 9) {
-      console.error('NEED CALL NEW BLOCK');
-      return;
+    if (currentPhraseIdx === 2) {
+      // TODO: make it 10
+      console.warn('NEED CALL NEW BLOCK');
+      const oldBlockName: string = currentBlockName;
+      const block = oldBlockName.slice().split('_');
+      const newName = `${block[0]}_${parseInt(block[1]) + 1}`;
+      dispatch(setCurrentBlockName(newName));
+
+      const data: BlockOf100 = phrases_data;
+      try {
+        const newBlock: Phrase[] = data.data_of_100[`${newName}`].phrases;
+        dispatch(setBlock(newBlock));
+        dispatch(showQuestion());
+      } catch (err) {
+        throw new Error('I do not have more blocks ready yet - TODO: make API');
+        // TODO: loop back to the beginning
+      }
     }
     dispatch(increasePhraseIdx());
     dispatch(showQuestion());

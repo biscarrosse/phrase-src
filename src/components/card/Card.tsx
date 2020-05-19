@@ -22,7 +22,7 @@ interface CardProps {
   textSize: string;
 }
 const Card = ({ color, text = 'unset', textSize }: CardProps) => {
-  const [LGTM, setLGTM] = useState({ phrase: '', idx: 0 });
+  const [cardPhrase, setCardPhrase] = useState({ phrase: '', idx: 0 });
 
   const { currentBlock, currentPhraseIdx, isQuestion } = useSelector(
     (state: AppState) => state.exercise
@@ -39,7 +39,7 @@ const Card = ({ color, text = 'unset', textSize }: CardProps) => {
     const block: Phrase[] = currentBlock;
     if (block.length === 0) return;
 
-    setLGTM({
+    setCardPhrase({
       phrase:
         currentBlock[currentPhraseIdx][
           `${isQuestion ? originLanguage : targetLanguage}`
@@ -49,8 +49,8 @@ const Card = ({ color, text = 'unset', textSize }: CardProps) => {
   }, [currentBlock, currentPhraseIdx]);
 
   const handleText = () => {
-    if (LGTM.phrase !== '') {
-      return gimmeText(textSize, LGTM.phrase);
+    if (cardPhrase.phrase !== '') {
+      return gimmeText(textSize, cardPhrase.phrase);
     } else return null;
   };
 

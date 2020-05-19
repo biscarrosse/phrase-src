@@ -3,6 +3,7 @@ import {
   SHOW_QUESTION,
   LOAD_PHRASES,
   SET_BLOCK,
+  SET_BLOCK_NAME,
   INCREASE_IDX,
   BlockOf100,
   Phrases,
@@ -27,4 +28,8 @@ export const loadPhrases = (phrases: BlockOf100) => {
 
 export const setBlock = (block: Phrase[]) => {
   return { type: SET_BLOCK, payload: block };
+};
+
+export const setCurrentBlockName = (blockName: string) => {
+  return { type: SET_BLOCK_NAME, payload: blockName };
 };

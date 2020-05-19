@@ -7,7 +7,8 @@ import {
   showAnswer,
   showQuestion,
   loadPhrases,
-  setBlock
+  setBlock,
+  setCurrentBlockName
 } from '../../store/exercise/actions';
 // Style:
 import {
@@ -38,11 +39,12 @@ import { random, isEmpty } from 'lodash';
 const ExerciseQuestion = () => {
   const dispatch = useDispatch();
   const EMPTY_STR = '';
-  const [cardState, setCardState] = useState({
-    block: 0,
-    phrase: EMPTY_STR,
-    idx: 0
-  });
+
+  // const [cardState, setCardState] = useState({
+  //   block: 0,
+  //   phrase: EMPTY_STR,
+  //   idx: 0
+  // });
 
   const {
     from: { language: originLanguage },
@@ -54,6 +56,7 @@ const ExerciseQuestion = () => {
     phrases_data,
     completedBlocks,
     currentBlock,
+    currentBlockName,
     currentPhraseIdx
   } = useSelector((state: AppState) => state.exercise);
 
@@ -68,13 +71,6 @@ const ExerciseQuestion = () => {
   };
 
   useEffect(() => {
-    console.log(
-      'exercise question DID MNT',
-      originLanguage,
-      targetLanguage,
-      selectedLevel
-    );
-
     const asyncCall = async () => {
       const miliseconds = random(500, 1500);
       console.log('miliseconds', miliseconds);
@@ -92,16 +88,15 @@ const ExerciseQuestion = () => {
   }, []);
 
   const setInitBlock = (data: BlockOf100) => {
-    // set init current block to the redux:
     const block: Phrase[] = data.data_of_100.block_0.phrases;
-    console.log('init block', block);
     dispatch(setBlock(block));
+    dispatch(setCurrentBlockName(`block_0`));
   };
 
   useEffect(() => {
     console.log('INITIAL phrases_data', phrases_data);
     if (isEmpty(phrases_data)) return;
-    if (cardState.phrase === EMPTY_STR && phrases_data)
+    if (currentBlockName === EMPTY_STR && phrases_data)
       setInitBlock(phrases_data);
   }, [phrases_data]);
 
@@ -114,7 +109,7 @@ const ExerciseQuestion = () => {
     <Vertical className="exercise" style={{ width: '100%' }}>
       {phrases_data ? <p>data are here</p> : <p>wait for data</p>}
       <Margin marginValue="1rem 0">
-        <Card color={COLOR.WHITE} text={cardState.phrase} textSize={SIZE.MID} />
+        <Card color={COLOR.WHITE} textSize={SIZE.MID} />
       </Margin>
       <Button
         size={SIZE.SMALL}
