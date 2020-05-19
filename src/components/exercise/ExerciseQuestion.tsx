@@ -91,22 +91,6 @@ const ExerciseQuestion = () => {
     originLanguage && targetLanguage && selectedLevel && asyncCall();
   }, []);
 
-  // nope, better redux it
-  const handlePhraseData = (data: BlockOf100) => {
-    console.log('gimmePhraseData---', data.data_of_100.block_0);
-    // TODO: look to the store how many do I have completed
-    console.log('completedBlocks', typeof completedBlocks, completedBlocks);
-    const doneBlocks: string[] = completedBlocks;
-    if (doneBlocks.length === 0) {
-      setCardState({
-        block: 0,
-        phrase: data.data_of_100.block_0.phrases[0].english,
-        idx: 0
-      });
-      return;
-    }
-  };
-
   const setInitBlock = (data: BlockOf100) => {
     // set init current block to the redux:
     const block: Phrase[] = data.data_of_100.block_0.phrases;
