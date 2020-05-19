@@ -3,6 +3,7 @@ import {
   SHOW_QUESTION,
   LOAD_PHRASES,
   SET_BLOCK,
+  INCREASE_IDX,
   BlockOf100,
   Phrases,
   Phrase
@@ -14,6 +15,10 @@ export const showAnswer = () => {
 
 export const showQuestion = () => {
   return { type: SHOW_QUESTION };
+};
+
+export const increasePhraseIdx = () => {
+  return { type: INCREASE_IDX };
 };
 
 export const loadPhrases = (phrases: BlockOf100) => {

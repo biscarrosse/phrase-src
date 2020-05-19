@@ -76,7 +76,7 @@ const ExerciseQuestion = () => {
     );
 
     const asyncCall = async () => {
-      const miliseconds = random(500, 2000);
+      const miliseconds = random(500, 1500);
       console.log('miliseconds', miliseconds);
       try {
         const data: BlockOf100 = await fakeApiCall(miliseconds, fakeData);

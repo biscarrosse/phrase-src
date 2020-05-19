@@ -3,6 +3,7 @@ import {
   SHOW_QUESTION,
   LOAD_PHRASES,
   SET_BLOCK,
+  INCREASE_IDX,
   ExerciseAction,
   BlockOf100
 } from './types';
@@ -35,6 +36,8 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
       return { ...state, phrases_data: { ...action.payload } }; // ...interface BlockOf100
     case SET_BLOCK:
       return { ...state, currentBlock: action.payload }; // Phrase[]
+    case INCREASE_IDX:
+      return { ...state, currentPhraseIdx: state.currentPhraseIdx + 1 };
     default:
       return state;
   }

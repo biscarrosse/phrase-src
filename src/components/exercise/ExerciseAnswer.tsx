@@ -1,9 +1,9 @@
 // React:
-import React from 'react';
+import React, { useEffect } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
-import { showAnswer, showQuestion } from '../../store/exercise/actions';
+import { increasePhraseIdx, showQuestion } from '../../store/exercise/actions';
 // Style:
 import {
   Horizontal,
@@ -25,14 +25,36 @@ import * as COLOR from '../../constants/buttonColors';
 const ExerciseAnswer = () => {
   const dispatch = useDispatch();
 
-  const handleNext = () => {
-    // dispatch(showAnswer());
-    console.log('handleNext');
-  };
+  const {
+    from: { language: originLanguage },
+    to: { language: targetLanguage },
+    level: { level: selectedLevel }
+  } = useSelector((state: AppState) => state.language);
+
+  const {
+    phrases_data,
+    completedBlocks,
+    currentBlock,
+    currentPhraseIdx
+  } = useSelector((state: AppState) => state.exercise);
+
+  useEffect(() => {
+    console.log('ANSWER UPDT', currentBlock, currentPhraseIdx);
+  }, [currentBlock, currentPhraseIdx]);
 
   const handleRepeat = () => {
-    // dispatch(showAnswer());
     console.log('handleRepeat');
+  };
+
+  const handleNext = () => {
+    // +1 to currentPhraseIdx if is not last
+    if (currentPhraseIdx === 9) {
+      console.error('NEED CALL NEW BLOCK');
+      return;
+    }
+    dispatch(increasePhraseIdx());
+    dispatch(showQuestion());
+    console.log('handleNext');
   };
 
   return (
