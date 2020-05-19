@@ -6,21 +6,21 @@
         "phrases": [
           {
             "id": 1,
-            "english": "english 1",
-            "spanish": "spanish 1",
-            "czech": "czech 1"
+            "english": "english 1 level A",
+            "spanish": "spanish 1 level A",
+            "czech": "czech 1 level A"
           },
           {
             "id": 2,
-            "english": "english 2",
-            "spanish": "spanish 2",
-            "czech": "czech 2"
+            "english": "english 2 level A",
+            "spanish": "spanish 2 level A",
+            "czech": "czech 2 level A"
           },
           {
             "id": 3,
-            "english": "english 3",
-            "spanish": "spanish 3",
-            "czech": "czech 3"
+            "english": "english 3 level A",
+            "spanish": "spanish 3 level A",
+            "czech": "czech 3 level A"
           }
         ]
       },
@@ -28,21 +28,21 @@
         "phrases": [
           {
             "id": 11,
-            "english": "english 11",
-            "spanish": "spanish 11",
-            "czech": "czech 11"
+            "english": "english 11 level A",
+            "spanish": "spanish 11 level A",
+            "czech": "czech 1 level A1"
           },
           {
             "id": 12,
-            "english": "english 12",
-            "spanish": "spanish 12",
-            "czech": "czech 12"
+            "english": "english 12 level A",
+            "spanish": "spanish 12 level A",
+            "czech": "czech 12 level A"
           },
           {
             "id": 13,
-            "english": "english 13",
-            "spanish": "spanish 13",
-            "czech": "czech 13"
+            "english": "english 13 level A",
+            "spanish": "spanish 13 level A",
+            "czech": "czech 13 level A"
           }
         ]
       }
@@ -52,21 +52,21 @@
         "phrases": [
           {
             "id": 1,
-            "english": "english 1",
-            "spanish": "spanish 1",
-            "czech": "czech 1"
+            "english": "english 1 level B",
+            "spanish": "spanish 1 level B",
+            "czech": "czech 1 level B"
           },
           {
             "id": 2,
-            "english": "english 2",
-            "spanish": "spanish 2",
-            "czech": "czech 2"
+            "english": "english 2 level B",
+            "spanish": "spanish 2 level B",
+            "czech": "czech 2 level B"
           },
           {
             "id": 3,
-            "english": "english 3",
-            "spanish": "spanish 3",
-            "czech": "czech 3"
+            "english": "english 3 level B",
+            "spanish": "spanish 3 level B",
+            "czech": "czech 3 level B"
           }
         ]
       },
@@ -74,21 +74,21 @@
         "phrases": [
           {
             "id": 11,
-            "english": "english 11",
-            "spanish": "spanish 11",
-            "czech": "czech 11"
+            "english": "english 11 level B",
+            "spanish": "spanish 11 level B",
+            "czech": "czech 11 level B"
           },
           {
             "id": 12,
-            "english": "english 12",
-            "spanish": "spanish 12",
-            "czech": "czech 12"
+            "english": "english 12 level B",
+            "spanish": "spanish 12 level B",
+            "czech": "czech 12 level B"
           },
           {
             "id": 13,
-            "english": "english 13",
-            "spanish": "spanish 13",
-            "czech": "czech 13"
+            "english": "english 13 level B",
+            "spanish": "spanish 13 level B",
+            "czech": "czech 13 level B"
           }
         ]
       }
@@ -98,21 +98,21 @@
         "phrases": [
           {
             "id": 1,
-            "english": "english 1",
-            "spanish": "spanish 1",
-            "czech": "czech 1"
+            "english": "english 1 level C",
+            "spanish": "spanish 1 level C",
+            "czech": "czech 1 level C"
           },
           {
             "id": 2,
-            "english": "english 2",
-            "spanish": "spanish 2",
-            "czech": "czech 2"
+            "english": "english 2 level C",
+            "spanish": "spanish 2 level C",
+            "czech": "czech 2 level C"
           },
           {
             "id": 3,
-            "english": "english 3",
-            "spanish": "spanish 3",
-            "czech": "czech 3"
+            "english": "english 3 level C",
+            "spanish": "spanish 3 level C",
+            "czech": "czech 3 level C"
           }
         ]
       },
@@ -120,21 +120,21 @@
         "phrases": [
           {
             "id": 11,
-            "english": "english 11",
-            "spanish": "spanish 11",
+            "english": "english 11 level C",
+            "spanish": "spanish 11 level C",
             "czech": "czech 11"
           },
           {
             "id": 12,
-            "english": "english 12",
-            "spanish": "spanish 12",
-            "czech": "czech 12"
+            "english": "english 12 level C",
+            "spanish": "spanish 12 level C",
+            "czech": "czech 12 level C"
           },
           {
             "id": 13,
-            "english": "english 13",
-            "spanish": "spanish 13",
-            "czech": "czech 13"
+            "english": "english 13 level C",
+            "spanish": "spanish 13 level C",
+            "czech": "czech 13 level C"
           }
         ]
       }

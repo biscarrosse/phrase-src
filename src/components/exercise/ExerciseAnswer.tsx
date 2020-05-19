@@ -24,6 +24,8 @@ import Button from '../button/Button';
 import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
+// Utils:
+import { levelForData } from '../../utils/utils';
 
 const ExerciseAnswer = () => {
   const dispatch = useDispatch();
@@ -61,8 +63,9 @@ const ExerciseAnswer = () => {
 
       const data: BlockOf100 = phrases_data;
       try {
+        const level = levelForData(selectedLevel);
         const newBlock: Phrase[] =
-          data.data_of_100.level_A[`${newName}`].phrases; // TODO: LEVEL
+          data.data_of_100[`${level}`][`${newName}`].phrases;
         dispatch(setBlock(newBlock));
         dispatch(showQuestion());
       } catch (err) {

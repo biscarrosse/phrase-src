@@ -1,5 +1,7 @@
 export const DUMMY = `dummy`;
+export const EMPTY_STR = ``;
 export const GOT_IT_NEXT = `Got it, next!`;
+export const INIT_LEVEL = `block_0`;
 export const LEVEL = `Level:`;
 export const MAIN_CALL_TO_ACTION = `Start with 10 phrases!`;
 export const MISSING_LANGUAGE_OPTIONS = `Select language options.`;

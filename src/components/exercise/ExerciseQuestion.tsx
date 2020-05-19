@@ -10,6 +10,13 @@ import {
   setBlock,
   setCurrentBlockName
 } from '../../store/exercise/actions';
+// Types:
+import {
+  BlockOf100,
+  BlockOf10,
+  Phrases,
+  Phrase
+} from '../../store/exercise/types';
 // Style:
 import {
   Horizontal,
@@ -26,25 +33,14 @@ import * as SIZE from '../../constants/buttonSizes';
 import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
 import fakeData from '../../constants/dummy.json';
-// Types:
-import {
-  BlockOf100,
-  BlockOf10,
-  Phrases,
-  Phrase
-} from '../../store/exercise/types';
+import { EMPTY_STR, INIT_LEVEL } from '../../constants/commonText';
 // Libraries:
 import { random, isEmpty } from 'lodash';
+// Utils:
+import { levelForData } from '../../utils/utils';
 
 const ExerciseQuestion = () => {
   const dispatch = useDispatch();
-  const EMPTY_STR = '';
-
-  // const [cardState, setCardState] = useState({
-  //   block: 0,
-  //   phrase: EMPTY_STR,
-  //   idx: 0
-  // });
 
   const {
     from: { language: originLanguage },
@@ -88,9 +84,11 @@ const ExerciseQuestion = () => {
   }, []);
 
   const setInitBlock = (data: BlockOf100) => {
-    const block: Phrase[] = data.data_of_100.level_A.block_0.phrases; // TODO: LEVEL
+    const level = levelForData(selectedLevel);
+    const block: Phrase[] =
+      data.data_of_100[`${level}`][`${INIT_LEVEL}`].phrases;
     dispatch(setBlock(block));
-    dispatch(setCurrentBlockName(`block_0`));
+    dispatch(setCurrentBlockName(INIT_LEVEL));
   };
 
   useEffect(() => {
