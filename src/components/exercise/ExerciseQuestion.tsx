@@ -1,5 +1,5 @@
 // React:
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
@@ -27,17 +27,29 @@ import fakeData from '../../constants/dummy.json';
 // Types:
 import { BlockOf100 } from '../../store/exercise/types';
 // Libraries:
-import { random } from 'lodash';
+import { random, isEmpty } from 'lodash';
 
 const ExerciseQuestion = () => {
   const dispatch = useDispatch();
+  const EMPTY_STR = '';
+  const [cardState, setCardState] = useState({
+    block: 0,
+    phrase: EMPTY_STR,
+    idx: 0
+  });
 
   const {
     from: { language: originLanguage },
     to: { language: targetLanguage },
     level: { level: selectedLevel }
   } = useSelector((state: AppState) => state.language);
-  const { phrases_data } = useSelector((state: AppState) => state.exercise);
+
+  const {
+    phrases_data,
+    completedBlocks,
+    currentBlock,
+    currentPhraseIdx
+  } = useSelector((state: AppState) => state.exercise);
 
   // TODO: those any
   const fakeApiCall = (miliseconds: number, fakeData: any): any => {
@@ -73,8 +85,25 @@ const ExerciseQuestion = () => {
     originLanguage && targetLanguage && selectedLevel && asyncCall();
   }, []);
 
+  const gimmePhraseData = (data: BlockOf100) => {
+    if (isEmpty(phrases_data)) return;
+    //console.log('gimmePhraseData---', data.data_of_100.block_0);
+    console.log('gimmePhraseData---', data.data_of_100.block_0);
+    return true;
+  };
+
   useEffect(() => {
-    console.log('phrases_data UPDT', phrases_data);
+    console.log(
+      'UPDT phrases_data - empty',
+      phrases_data,
+      isEmpty(phrases_data)
+    );
+    if (isEmpty(phrases_data)) return;
+
+    if (cardState.phrase === EMPTY_STR && phrases_data) {
+      gimmePhraseData(phrases_data);
+      return;
+    }
   }, [phrases_data]);
 
   const handleAnswer = () => {
@@ -86,11 +115,7 @@ const ExerciseQuestion = () => {
     <Vertical className="exercise" style={{ width: '100%' }}>
       {phrases_data ? <p>data are here</p> : <p>wait for data</p>}
       <Margin marginValue="1rem 0">
-        <Card
-          color={COLOR.WHITE}
-          text="Test string for Question."
-          textSize={SIZE.MID}
-        />
+        <Card color={COLOR.WHITE} text={cardState.phrase} textSize={SIZE.MID} />
       </Margin>
       <Button
         size={SIZE.SMALL}

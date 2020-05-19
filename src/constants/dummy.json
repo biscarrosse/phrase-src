@@ -1,7 +1,7 @@
 {
   "name": "language_data",
   "data_of_100": {
-    "block_10": {
+    "block_0": {
       "phrases": [
         {
           "id": 1,
@@ -17,7 +17,7 @@
         }
       ]
     },
-    "block_20": {
+    "block_1": {
       "phrases": [
         {
           "id": 3,

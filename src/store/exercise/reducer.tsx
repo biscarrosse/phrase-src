@@ -2,15 +2,29 @@ import {
   SHOW_ANSWER,
   SHOW_QUESTION,
   LOAD_PHRASES,
-  ExerciseAction
+  ExerciseAction,
+  BlockOf100
 } from './types';
 
-const initState = {
+interface InitState {
+  isQuestion: true;
+  isAnswer: boolean;
+  question: any;
+  answer: any;
+  phrases_data: BlockOf100 | {};
+  completedBlocks: [];
+  currentBlock: [];
+  currentPhraseIdx: 0;
+}
+const initState: InitState = {
   isQuestion: true,
   isAnswer: false,
   question: null,
   answer: null,
-  phrases_data: {}
+  phrases_data: {},
+  completedBlocks: [],
+  currentBlock: [],
+  currentPhraseIdx: 0
 };
 
 const exerciseReducer = (state = initState, action: ExerciseAction) => {
