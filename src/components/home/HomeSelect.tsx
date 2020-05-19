@@ -38,6 +38,12 @@ export const HomeSelect = () => {
 
   const mapListOf = (langs: Array<LangProps> | Array<LevelProps>) => {
     // TODO: persist value from store if there is any
+    console.log(
+      'each select field',
+      originLanguage,
+      targetLanguage,
+      selectedLevel
+    );
     return langs.map(i => {
       return (
         <option key={i.id} value={i.id}>
@@ -61,17 +67,26 @@ export const HomeSelect = () => {
     dispatch(setLevel({ level: e.target.value }));
   };
 
+  //value={LANGS.LANGUAGE_OPTIONS[1].id}
   return (
     <Center className="select">
       <SpaceBetween width={85}>
         <Pulse shouldPulse={originLanguage}>
-          <Select onChange={e => handleSelect(e, LANGS.FROM)} id={LANGS.FROM}>
+          <Select
+            value={originLanguage}
+            onChange={e => handleSelect(e, LANGS.FROM)}
+            id={LANGS.FROM}
+          >
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
         <FontAwesomeIcon icon={'chevron-right'} size="1x" />
         <Pulse shouldPulse={targetLanguage}>
-          <Select onChange={e => handleSelect(e, LANGS.TO)} id={LANGS.TO}>
+          <Select
+            value={targetLanguage}
+            onChange={e => handleSelect(e, LANGS.TO)}
+            id={LANGS.TO}
+          >
             {mapListOf(LANGS.LANGUAGE_OPTIONS)}
           </Select>
         </Pulse>
@@ -79,6 +94,7 @@ export const HomeSelect = () => {
           <FontAwesomeIcon icon={'chevron-right'} size="1x" />
           <Pulse shouldPulse={selectedLevel}>
             <Select
+              value={selectedLevel}
               onChange={e => handleSelect(e, LANGS.LEVEL)}
               id={LANGS.LEVEL}
             >
