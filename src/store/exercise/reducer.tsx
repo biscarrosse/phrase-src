@@ -2,9 +2,11 @@ import {
   SHOW_ANSWER,
   SHOW_QUESTION,
   LOAD_PHRASES,
+  SET_BLOCK,
   ExerciseAction,
   BlockOf100
 } from './types';
+import { object } from 'prop-types';
 
 interface InitState {
   isQuestion: true;
@@ -12,7 +14,7 @@ interface InitState {
   question: any;
   answer: any;
   phrases_data: BlockOf100 | {};
-  completedBlocks: [];
+  completedBlocks: string[];
   currentBlock: [];
   currentPhraseIdx: 0;
 }
@@ -22,7 +24,7 @@ const initState: InitState = {
   question: null,
   answer: null,
   phrases_data: {},
-  completedBlocks: [],
+  completedBlocks: ['duck'],
   currentBlock: [],
   currentPhraseIdx: 0
 };
@@ -35,6 +37,8 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
       return { ...state, isQuestion: true, isAnswer: false };
     case LOAD_PHRASES:
       return { ...state, phrases_data: { ...action.payload } }; // ...interface BlockOf100
+    case SET_BLOCK:
+      return { ...state, currentBlock: action.payload }; // ...interface BlockOf10
     default:
       return state;
   }

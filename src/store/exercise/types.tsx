@@ -1,10 +1,15 @@
 export const SHOW_ANSWER = `SHOW_ANSWER`;
 export const SHOW_QUESTION = `SHOW_QUESTION`;
 export const LOAD_PHRASES = `LOAD_PHRASES`;
+export const SET_BLOCK = `SET_BLOCK`;
 
 export interface ExerciseAction {
-  type: typeof SHOW_ANSWER | typeof SHOW_QUESTION | typeof LOAD_PHRASES;
-  payload?: BlockOf100;
+  type:
+    | typeof SHOW_ANSWER
+    | typeof SHOW_QUESTION
+    | typeof LOAD_PHRASES
+    | typeof SET_BLOCK;
+  payload?: BlockOf100 | Phrases;
 }
 
 export interface Phrase {
@@ -14,7 +19,7 @@ export interface Phrase {
   czech: string;
 }
 export interface Phrases {
-  phrases: Array<Phrase>;
+  phrases: Phrase[];
 }
 export interface BlockOf10 {
   [key: string]: Phrases;

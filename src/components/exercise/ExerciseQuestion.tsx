@@ -6,7 +6,8 @@ import { AppState } from '../../store/store';
 import {
   showAnswer,
   showQuestion,
-  loadPhrases
+  loadPhrases,
+  setBlock
 } from '../../store/exercise/actions';
 // Style:
 import {
@@ -25,7 +26,12 @@ import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
 import fakeData from '../../constants/dummy.json';
 // Types:
-import { BlockOf100 } from '../../store/exercise/types';
+import {
+  BlockOf100,
+  BlockOf10,
+  Phrases,
+  Phrase
+} from '../../store/exercise/types';
 // Libraries:
 import { random, isEmpty } from 'lodash';
 
@@ -85,25 +91,34 @@ const ExerciseQuestion = () => {
     originLanguage && targetLanguage && selectedLevel && asyncCall();
   }, []);
 
-  const gimmePhraseData = (data: BlockOf100) => {
-    if (isEmpty(phrases_data)) return;
-    //console.log('gimmePhraseData---', data.data_of_100.block_0);
+  // nope, better redux it
+  const handlePhraseData = (data: BlockOf100) => {
     console.log('gimmePhraseData---', data.data_of_100.block_0);
-    return true;
+    // TODO: look to the store how many do I have completed
+    console.log('completedBlocks', typeof completedBlocks, completedBlocks);
+    const doneBlocks: string[] = completedBlocks;
+    if (doneBlocks.length === 0) {
+      setCardState({
+        block: 0,
+        phrase: data.data_of_100.block_0.phrases[0].english,
+        idx: 0
+      });
+      return;
+    }
+  };
+
+  const setInitBlock = (data: BlockOf100) => {
+    // set init current block to the redux:
+    const block: Phrase[] = data.data_of_100.block_0.phrases;
+    console.log('init block', block);
+    dispatch(setBlock(block));
   };
 
   useEffect(() => {
-    console.log(
-      'UPDT phrases_data - empty',
-      phrases_data,
-      isEmpty(phrases_data)
-    );
+    console.log('INITIAL phrases_data', phrases_data);
     if (isEmpty(phrases_data)) return;
-
-    if (cardState.phrase === EMPTY_STR && phrases_data) {
-      gimmePhraseData(phrases_data);
-      return;
-    }
+    if (cardState.phrase === EMPTY_STR && phrases_data)
+      setInitBlock(phrases_data);
   }, [phrases_data]);
 
   const handleAnswer = () => {
