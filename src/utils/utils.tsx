@@ -6,6 +6,7 @@ import * as SIZE from '../constants/buttonSizes';
 import * as POSITION from '../constants/position';
 
 export const gimmeText = (textSize: string, text: string): JSX.Element => {
+  console.log('GIMME TEXT', text);
   if (textSize === SIZE.BIG)
     return <H1 style={{ padding: '0.4rem' }}>{text}</H1>;
   if (textSize === SIZE.MID)

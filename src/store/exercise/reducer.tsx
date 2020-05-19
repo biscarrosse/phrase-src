@@ -11,8 +11,6 @@ import { object } from 'prop-types';
 interface InitState {
   isQuestion: true;
   isAnswer: boolean;
-  question: any;
-  answer: any;
   phrases_data: BlockOf100 | {};
   completedBlocks: string[];
   currentBlock: [];
@@ -21,8 +19,6 @@ interface InitState {
 const initState: InitState = {
   isQuestion: true,
   isAnswer: false,
-  question: null,
-  answer: null,
   phrases_data: {},
   completedBlocks: ['duck'],
   currentBlock: [],
@@ -38,7 +34,7 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
     case LOAD_PHRASES:
       return { ...state, phrases_data: { ...action.payload } }; // ...interface BlockOf100
     case SET_BLOCK:
-      return { ...state, currentBlock: action.payload }; // ...interface BlockOf10
+      return { ...state, currentBlock: action.payload }; // Phrase[]
     default:
       return state;
   }
