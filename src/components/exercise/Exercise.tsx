@@ -1,5 +1,5 @@
 // React:
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 // Redux:
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
@@ -25,7 +25,13 @@ import * as TEXT from '../../constants/commonText';
 import * as COLOR from '../../constants/buttonColors';
 
 const Exercise = () => {
+  const [question, setQuestion] = useState(false);
+
   const { isQuestion } = useSelector((state: AppState) => state.exercise);
+
+  useEffect(() => {
+    console.log('isQuestion toggle', isQuestion);
+  }, [isQuestion]);
 
   const one = () => console.log('one');
   const two = () => console.log('two');

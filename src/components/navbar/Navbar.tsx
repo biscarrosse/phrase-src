@@ -4,6 +4,10 @@ import React, { useEffect } from 'react';
 // import { useDispatch } from 'react-redux';
 // import { toggleSidebar } from '../store/sidebar/actions';
 // import { toggleDarkMode } from '../store/darkMode/actions';
+// Redux:
+import { useSelector, useDispatch } from 'react-redux';
+import { AppState } from '../../store/store';
+import { showAnswer, showQuestion } from '../../store/exercise/actions';
 // Router:
 import { useHistory, useLocation } from 'react-router-dom';
 // Deps:
@@ -23,11 +27,12 @@ import {
 const Navbar: React.FC = () => {
   const history = useHistory();
   const location = useLocation();
+  const { isQuestion } = useSelector((state: AppState) => state.exercise);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     console.log('navbar location', location.pathname);
   }, [location]);
-  //   const dispatch = useDispatch();
   //   const toggle = () => dispatch(toggleSidebar());
   //   const toggleDark = () => dispatch(toggleDarkMode());
   //   const login = () => console.log('LOGIN FIRES');
@@ -41,7 +46,16 @@ const Navbar: React.FC = () => {
   };
 
   const handleBack = () => {
-    console.log('handleBack');
+    console.log('handleBack', location);
+    // switch & props probably
+    if (location.pathname === NAV.EXERCISE && !isQuestion) {
+      dispatch(showQuestion());
+      return;
+    }
+    if (location.pathname === NAV.EXERCISE && isQuestion) {
+      history.push(NAV.HOME);
+      return;
+    }
     history.push(NAV.HOME);
   };
 

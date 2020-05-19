@@ -37,6 +37,7 @@ const ExerciseQuestion = () => {
     to: { language: targetLanguage },
     level: { level: selectedLevel }
   } = useSelector((state: AppState) => state.language);
+  const { phrases_data } = useSelector((state: AppState) => state.exercise);
 
   // TODO: those any
   const fakeApiCall = (miliseconds: number, fakeData: any): any => {
@@ -72,6 +73,10 @@ const ExerciseQuestion = () => {
     originLanguage && targetLanguage && selectedLevel && asyncCall();
   }, []);
 
+  useEffect(() => {
+    console.log('phrases_data UPDT', phrases_data);
+  }, [phrases_data]);
+
   const handleAnswer = () => {
     dispatch(showAnswer());
     console.log('handleAnswer');
@@ -79,6 +84,7 @@ const ExerciseQuestion = () => {
 
   return (
     <Vertical className="exercise" style={{ width: '100%' }}>
+      {phrases_data ? <p>data are here</p> : <p>wait for data</p>}
       <Margin marginValue="1rem 0">
         <Card
           color={COLOR.WHITE}
