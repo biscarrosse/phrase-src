@@ -88,7 +88,7 @@ const ExerciseQuestion = () => {
   }, []);
 
   const setInitBlock = (data: BlockOf100) => {
-    const block: Phrase[] = data.data_of_100.block_0.phrases;
+    const block: Phrase[] = data.data_of_100.level_A.block_0.phrases; // TODO: LEVEL
     dispatch(setBlock(block));
     dispatch(setCurrentBlockName(`block_0`));
   };

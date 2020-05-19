@@ -17,9 +17,6 @@ import {
   Margin,
   SpaceBetween
 } from '../styles/common.style';
-// import { Btn } from '../styles/button.style';
-import { H1, H2, P } from '../styles/text.style';
-// import * as PALETTE from '../styles/colors.style';
 // Components:
 import Card from '../card/Card';
 import Button from '../button/Button';
@@ -64,7 +61,8 @@ const ExerciseAnswer = () => {
 
       const data: BlockOf100 = phrases_data;
       try {
-        const newBlock: Phrase[] = data.data_of_100[`${newName}`].phrases;
+        const newBlock: Phrase[] =
+          data.data_of_100.level_A[`${newName}`].phrases; // TODO: LEVEL
         dispatch(setBlock(newBlock));
         dispatch(showQuestion());
       } catch (err) {
