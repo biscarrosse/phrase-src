@@ -20,7 +20,8 @@ import {
   Vertical,
   Horizontal,
   Margin,
-  Flex
+  Flex,
+  FullWidth
 } from '../styles/common.style';
 
 // lang reading out loud
@@ -60,28 +61,30 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <Margin marginValue={'0.5rem 0'}>
-      <Vertical>
-        <Horizontal>
-          <Flex onClick={handleBack} grow={2}>
-            {location.pathname === NAV.HOME ? null : (
-              <FontAwesomeIcon icon={'chevron-left'} size="1x" />
-            )}
-          </Flex>
-          <Flex grow={8} center={true}>
-            <LightH1>PhraseSource</LightH1>
-          </Flex>
-          <Flex grow={2}>
-            <FontAwesomeIcon
-              onClick={toggle}
-              icon={'bars'}
-              size="1x"
-              style={{ padding: 0 }}
-            />
-          </Flex>
-        </Horizontal>
-      </Vertical>
-    </Margin>
+    <FullWidth className="navbar">
+      <Margin marginValue={'0.5rem 0'}>
+        <Vertical>
+          <Horizontal>
+            <Flex onClick={handleBack} grow={2}>
+              {location.pathname === NAV.HOME ? null : (
+                <FontAwesomeIcon icon={'chevron-left'} size="1x" />
+              )}
+            </Flex>
+            <Flex grow={8} center={true}>
+              <LightH1>PhraseSource</LightH1>
+            </Flex>
+            <Flex grow={2}>
+              <FontAwesomeIcon
+                onClick={toggle}
+                icon={'bars'}
+                size="1x"
+                style={{ padding: 0 }}
+              />
+            </Flex>
+          </Horizontal>
+        </Vertical>
+      </Margin>
+    </FullWidth>
   );
 };
 

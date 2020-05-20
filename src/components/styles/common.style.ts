@@ -3,18 +3,19 @@ import * as PALETTE from './colors.style';
 
 export const Container = styled.div`
   position: relative;
-  height: 100vh;
   display: flex;
   flex-grow: 12;
   margin: 0 1.4rem;
 `;
 
 export const Wrap = styled.div`
+  height: 100%;
+  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
-  min-height: 100vh;
+  overflow: hidden;
+
   margin: 0;
   padding: 0;
   /*justify-content: center;*/

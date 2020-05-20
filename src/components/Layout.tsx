@@ -15,7 +15,7 @@ const Layout: React.FC = ({ children }) => {
     <Wrap className="wrap watch?v=dQw4w9WgXcQ">
       <Navbar />
       <Toast />
-      <Container>{children}</Container>
+      <Container className="children-container">{children}</Container>
     </Wrap>
   );
 };
