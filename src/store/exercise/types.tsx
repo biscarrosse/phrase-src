@@ -4,6 +4,7 @@ export const LOAD_PHRASES = `LOAD_PHRASES`;
 export const SET_BLOCK = `SET_BLOCK`;
 export const SET_BLOCK_NAME = `SET_BLOCK_NAME`;
 export const INCREASE_IDX = `INCREASE_IDX`;
+export const RESET_IDX = `RESET_IDX`;
 
 export interface ExerciseAction {
   type:
@@ -12,7 +13,8 @@ export interface ExerciseAction {
     | typeof LOAD_PHRASES
     | typeof SET_BLOCK
     | typeof SET_BLOCK_NAME
-    | typeof INCREASE_IDX;
+    | typeof INCREASE_IDX
+    | typeof RESET_IDX;
   payload?: BlockOf100 | Phrases;
 }
 

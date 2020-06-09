@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 // Redux:
 import { useDispatch, useSelector } from 'react-redux';
 import { closeToast } from '../../store/toast/actions';
+import { resetCurrentPhraseIdx } from '../../store/exercise/actions';
 import { AppState } from '../../store/store';
 import { Phrase } from '../../store/exercise/types';
 // Components:
@@ -23,6 +24,8 @@ interface CardProps {
 }
 const Card = ({ color, text = 'unset', textSize }: CardProps) => {
   const [cardPhrase, setCardPhrase] = useState({ phrase: '', idx: 0 });
+  const dispatch = useDispatch();
+  const LAST_IDX = 2; // TODO: 9
 
   const { currentBlock, currentPhraseIdx, isQuestion } = useSelector(
     (state: AppState) => state.exercise
@@ -35,15 +38,23 @@ const Card = ({ color, text = 'unset', textSize }: CardProps) => {
 
   useEffect(() => {
     console.log('CARD', currentBlock, currentPhraseIdx);
-
+    // const { currentBlock, currentPhraseIdx} = useSelector(
+    //   (state: AppState) => state.exercise
+    // );
     const block: Phrase[] = currentBlock;
     if (block.length === 0) return;
+    // const isLastPhraseOfBlock = false; // if else
+    // isLastPhraseOfBlock && dispatch(resetCurrentPhraseIdx());
+    console.log(
+      'what is here',
+      currentBlock,
+      currentBlock[currentPhraseIdx - 1]
+    );
+    // reset current phrase idx to 0
 
+    const lang = isQuestion ? originLanguage : targetLanguage;
     setCardPhrase({
-      phrase:
-        currentBlock[currentPhraseIdx][
-          `${isQuestion ? originLanguage : targetLanguage}`
-        ],
+      phrase: currentBlock[currentPhraseIdx][`${lang}`],
       idx: currentPhraseIdx
     });
   }, [currentBlock, currentPhraseIdx]);

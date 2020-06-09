@@ -5,6 +5,7 @@ import {
   SET_BLOCK,
   SET_BLOCK_NAME,
   INCREASE_IDX,
+  RESET_IDX,
   ExerciseAction,
   BlockOf100
 } from './types';
@@ -43,6 +44,8 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
       return { ...state, currentBlockName: action.payload };
     case INCREASE_IDX:
       return { ...state, currentPhraseIdx: state.currentPhraseIdx + 1 };
+    case RESET_IDX:
+      return { ...state, currentPhraseIdx: 0 };
     default:
       return state;
   }

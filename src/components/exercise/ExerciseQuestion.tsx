@@ -67,8 +67,8 @@ const ExerciseQuestion = () => {
   };
 
   useEffect(() => {
-    const asyncCall = async () => {
-      const miliseconds = random(500, 1500);
+    const fetchAPI = async () => {
+      const miliseconds = random(200, 1200);
       console.log('miliseconds', miliseconds);
       try {
         const data: BlockOf100 = await fakeApiCall(miliseconds, fakeData);
@@ -80,7 +80,7 @@ const ExerciseQuestion = () => {
       }
     };
 
-    originLanguage && targetLanguage && selectedLevel && asyncCall();
+    originLanguage && targetLanguage && selectedLevel && fetchAPI();
   }, []);
 
   const setInitBlock = (data: BlockOf100) => {
@@ -105,7 +105,6 @@ const ExerciseQuestion = () => {
 
   return (
     <Vertical className="exercise" style={{ width: '100%' }}>
-      {phrases_data ? <p>data are here</p> : <p>wait for data</p>}
       <Margin marginValue="1rem 0">
         <Card color={COLOR.WHITE} textSize={SIZE.MID} />
       </Margin>

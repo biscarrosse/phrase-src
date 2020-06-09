@@ -5,9 +5,10 @@ import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
 import {
   increasePhraseIdx,
-  showQuestion,
+  resetCurrentPhraseIdx,
+  setBlock,
   setCurrentBlockName,
-  setBlock
+  showQuestion
 } from '../../store/exercise/actions';
 import { BlockOf100, Phrase } from '../../store/exercise/types';
 // Style:
@@ -44,28 +45,23 @@ const ExerciseAnswer = () => {
     currentPhraseIdx
   } = useSelector((state: AppState) => state.exercise);
 
-  useEffect(() => {
-    console.log('ANSWER UPDT', currentBlock, currentPhraseIdx);
-  }, [currentBlock, currentPhraseIdx]);
-
-  const handleRepeat = () => {
-    console.log('handleRepeat');
-  };
+  const handleRepeat = () => console.log('handleRepeat');
 
   const handleNext = () => {
-    if (currentPhraseIdx === 2) {
-      // TODO: make it 10
-      console.warn('NEED CALL NEW BLOCK');
+    const LAST_IDX = 2; // TODO: 10
+    if (currentPhraseIdx === LAST_IDX) {
+      console.warn(`I'm on the last idx of block, load a next block`);
       const oldBlockName: string = currentBlockName;
       const block = oldBlockName.slice().split('_');
-      const newName = `${block[0]}_${parseInt(block[1]) + 1}`;
-      dispatch(setCurrentBlockName(newName));
+      const nextBlockName = `${block[0]}_${parseInt(block[1]) + 1}`;
+      dispatch(setCurrentBlockName(nextBlockName));
+      dispatch(resetCurrentPhraseIdx());
 
       const data: BlockOf100 = phrases_data;
       try {
         const level = levelForData(selectedLevel);
         const newBlock: Phrase[] =
-          data.data_of_100[`${level}`][`${newName}`].phrases;
+          data.data_of_100[`${level}`][`${nextBlockName}`].phrases;
         dispatch(setBlock(newBlock));
         dispatch(showQuestion());
       } catch (err) {

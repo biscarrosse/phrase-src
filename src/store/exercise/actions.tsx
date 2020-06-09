@@ -5,6 +5,7 @@ import {
   SET_BLOCK,
   SET_BLOCK_NAME,
   INCREASE_IDX,
+  RESET_IDX,
   BlockOf100,
   Phrases,
   Phrase
@@ -20,6 +21,10 @@ export const showQuestion = () => {
 
 export const increasePhraseIdx = () => {
   return { type: INCREASE_IDX };
+};
+
+export const resetCurrentPhraseIdx = () => {
+  return { type: RESET_IDX };
 };
 
 export const loadPhrases = (phrases: BlockOf100) => {

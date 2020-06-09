@@ -46,6 +46,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test jest": "jest",
     "eject": "react-scripts eject",
     "count": "cloc src/"
   },
@@ -65,6 +66,7 @@
     ]
   },
   "devDependencies": {
-    "cloc": "^2.5.1"
+    "cloc": "^2.5.1",
+    "react-test-renderer": "^16.13.1"
   }
 }
