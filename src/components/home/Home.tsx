@@ -4,6 +4,8 @@ import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { AppState } from '../../store/store';
 import { openToast, closeToast } from '../../store/toast/actions';
+import { insertLangData } from '../../store/exercise/actions';
+import { LANG_ARR } from '../../store/exercise/types';
 // Router:
 import {
   useHistory,
@@ -23,6 +25,10 @@ import * as SIZE from '../../constants/buttonSizes';
 import * as EMOJI from '../../constants/emoticons';
 import * as COLOR from '../../constants/buttonColors';
 import * as NAV from '../../constants/navigation';
+// Services:
+import { fetchData } from '../../services/index';
+// Libraries:
+import { isEmpty } from 'lodash';
 
 const Home = () => {
   const [pulse, setPulse] = useState<boolean>(false);
@@ -50,25 +56,22 @@ const Home = () => {
       targetLanguage !== null &&
       selectedLevel !== null &&
       pulse === false
-      // &&
-      // originLanguage !== TEXT.DUMMY &&
-      // targetLanguage !== TEXT.DUMMY &&
-      // selectedLevel !== TEXT.DUMMY
     ) {
       setPulse(true);
     } else return;
   }, [originLanguage, targetLanguage, selectedLevel]);
 
-  const startExercise = () => {
+  const startExercise = async () => {
     if (
       originLanguage !== null &&
       targetLanguage !== null &&
       selectedLevel !== null
-      // &&
-      // originLanguage !== TEXT.DUMMY &&
-      // targetLanguage !== TEXT.DUMMY &&
-      // selectedLevel !== TEXT.DUMMY
     ) {
+      const dataArr: LANG_ARR = await fetchData(selectedLevel);
+      console.log('res---', dataArr);
+      Array.isArray(dataArr) &&
+        !isEmpty(dataArr) &&
+        dispatch(insertLangData(dataArr));
       history.push(NAV.EXERCISE);
       return;
     } else {

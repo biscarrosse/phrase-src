@@ -79,7 +79,6 @@ const ExerciseQuestion = () => {
         throw new Error(err);
       }
     };
-
     originLanguage && targetLanguage && selectedLevel && fetchAPI();
   }, []);
 

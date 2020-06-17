@@ -8,7 +8,9 @@ import {
   RESET_IDX,
   BlockOf100,
   Phrases,
-  Phrase
+  Phrase,
+  LANG_ARR,
+  INSERT_LANG_DATA
 } from './types';
 
 export const showAnswer = () => {
@@ -37,4 +39,9 @@ export const setBlock = (block: Phrase[]) => {
 
 export const setCurrentBlockName = (blockName: string) => {
   return { type: SET_BLOCK_NAME, payload: blockName };
+};
+
+//------------------------------------------------------- NEW APPROACH
+export const insertLangData = (langArr: LANG_ARR) => {
+  return { type: INSERT_LANG_DATA, payload: langArr };
 };

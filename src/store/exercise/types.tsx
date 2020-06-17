@@ -5,7 +5,18 @@ export const SET_BLOCK = `SET_BLOCK`;
 export const SET_BLOCK_NAME = `SET_BLOCK_NAME`;
 export const INCREASE_IDX = `INCREASE_IDX`;
 export const RESET_IDX = `RESET_IDX`;
-
+// ----------------------------------------------------- NEW APPROACH
+export const INSERT_LANG_DATA = `INSERT_LANG_DATA`;
+export interface PhrasesBlock {
+  id: string;
+  english: string;
+  spanish: string;
+  czech: string;
+}
+export interface LANG_ARR {
+  [key: string]: PhrasesBlock[];
+}
+// -----------------------------------------------------
 export interface ExerciseAction {
   type:
     | typeof SHOW_ANSWER
@@ -14,8 +25,9 @@ export interface ExerciseAction {
     | typeof SET_BLOCK
     | typeof SET_BLOCK_NAME
     | typeof INCREASE_IDX
-    | typeof RESET_IDX;
-  payload?: BlockOf100 | Phrases;
+    | typeof RESET_IDX
+    | typeof INSERT_LANG_DATA;
+  payload?: BlockOf100 | Phrases | LANG_ARR;
 }
 
 // tier 5:

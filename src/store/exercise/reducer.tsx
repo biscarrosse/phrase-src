@@ -7,9 +7,9 @@ import {
   INCREASE_IDX,
   RESET_IDX,
   ExerciseAction,
-  BlockOf100
+  BlockOf100,
+  INSERT_LANG_DATA
 } from './types';
-import { object } from 'prop-types';
 
 interface InitState {
   isQuestion: true;
@@ -19,6 +19,7 @@ interface InitState {
   currentBlockName: string;
   currentBlock: [];
   currentPhraseIdx: 0;
+  data: [];
 }
 const initState: InitState = {
   isQuestion: true,
@@ -27,10 +28,12 @@ const initState: InitState = {
   completedBlocks: ['duck'],
   currentBlockName: '',
   currentBlock: [],
-  currentPhraseIdx: 0
+  currentPhraseIdx: 0,
+  data: []
 };
 
 const exerciseReducer = (state = initState, action: ExerciseAction) => {
+  console.log('reducer action', action);
   switch (action.type) {
     case SHOW_ANSWER:
       return { ...state, isQuestion: false, isAnswer: true };
@@ -46,6 +49,8 @@ const exerciseReducer = (state = initState, action: ExerciseAction) => {
       return { ...state, currentPhraseIdx: state.currentPhraseIdx + 1 };
     case RESET_IDX:
       return { ...state, currentPhraseIdx: 0 };
+    case INSERT_LANG_DATA:
+      return { ...state, data: action.payload };
     default:
       return state;
   }
